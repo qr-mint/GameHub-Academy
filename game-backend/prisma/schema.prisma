@@ -1,0 +1,304 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["interactiveTransactions"]
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum tournament_status {
+  created
+  ongoing
+  upcoming
+  completed
+}
+
+enum entry_modes {
+  one_time
+  per_attempt
+}
+
+enum reward_sources {
+  dex
+  pool
+  stake
+}
+
+enum schedule {
+  daily
+  weekend
+  weekly
+  special
+  season
+}
+
+enum tournament_types {
+  leaderboard
+  single_attempt
+  survival
+  race
+}
+
+
+enum chains {
+  ton
+  btc
+  stx
+  kaia
+  ancient
+  core
+  flow
+  sei
+  evm_sei
+  cosmos_mantra
+  solana
+  duckchain
+  bsc
+  cosmos_gonka
+  casper
+  botchain
+}
+
+model auth_providers {
+  id           Int      @id @default(autoincrement())
+  telegram_id  String?
+  game_user_id Int
+}
+
+model game_referral_nfts {
+  id           Int      @id @default(autoincrement())
+  address      String
+  game_user_id Int
+  chain        chains   @default(ton)
+  update_at    DateTime @default(now()) @updatedAt
+  created_at   DateTime @default(now())  
+}
+
+model game_users {
+  id              Int      @id @default(autoincrement())
+  username        String?
+  code            String
+  tickets         Int      @default(10)
+  total_deaths    Int      @default(0)
+  total_time      Int      @default(0)
+  active_style_id Int      @default(1)
+  referrals       game_referrals[]
+  tournament_participants tournament_participants[]
+  update_at    DateTime @default(now()) @updatedAt
+  created_at   DateTime @default(now())
+
+  user_wallet  game_user_wallets[]
+}
+
+model game_user_wallets {
+  id            Int            @id @default(autoincrement())
+  user_id       Int
+  wallet_id     Int
+
+  wallet        game_wallets? @relation(fields: [wallet_id], references: [id])
+  user          game_users?   @relation(fields: [user_id], references: [id])
+}
+
+model game_wallets {
+  id            Int       @id @default(autoincrement())
+  address       String
+  network       String
+
+  tournaments   tournaments[]
+  user_wallet   game_user_wallets[]
+  participants  tournament_participants[]
+  
+  @@unique([address, network])
+}
+
+model ad_views {
+  id           Int      @id @default(autoincrement())
+  user_id      Int
+  total_views  Int
+  daily_views  Int
+  last_view_at DateTime
+}
+
+model game_referrals {
+  id           Int      @id @default(autoincrement())
+  user_id      Int
+  invited_id   Int
+  user         game_users? @relation(fields: [invited_id], references: [id])
+  update_at    DateTime @default(now()) @updatedAt
+  created_at   DateTime @default(now())
+}
+
+model achievements {
+  id            Int      @id @default(autoincrement())
+  key           String  @unique
+  name_en         String
+  description_en  String
+  name_ru         String
+  description_ru  String
+  image_url    String
+  reward       Json
+  update_at    DateTime @default(now()) @updatedAt
+  created_at   DateTime @default(now())
+  user_achs    user_achievements[]
+}
+
+model user_achievements {
+  id             Int      @id @default(autoincrement())
+  user_id        Int
+  achievement_id Int
+  created_at     DateTime @default(now())
+  achievement    achievements? @relation(fields: [achievement_id], references: [id])
+
+  @@unique([user_id, achievement_id])
+}
+
+enum game_transaction_type {
+  buy_ticket
+  join_jackpot
+  mint_nft
+  create_tournament
+  
+  burn_lp
+  provide_lp
+  refund
+  swap
+}
+
+enum game_transaction_status {
+  pending
+  confirmed
+  failed
+}
+
+model game_transactions {
+  id             Int      @id @default(autoincrement())
+  user_id        Int
+  amount         Float
+  token          String
+  data           Json?
+  network        chains
+  status         game_transaction_status
+  order_id       Int
+  wallet_id      Int?
+  type           game_transaction_type
+  created_at     DateTime @default(now())
+}
+
+model tournaments {
+  id            Int       @id @default(autoincrement())
+  name          String
+  schedule      schedule
+  status        tournament_status @default(created)
+  type          tournament_types
+  description   String
+  entry_amount  Float?  // сумма в TON, если нужна
+  entry_tickets Int?    // если нужен билет вместо денег
+  start_at      DateTime?
+  end_at        DateTime?
+  players_count Int       @default(0)
+  winners_count Int
+  icon          String?
+  color         Int       @default(0)
+  network       chains    @default(ton)
+  currency_token String
+  reward_source reward_sources @default(pool)
+  dex_id        String?
+	prize_network chains @default(ton)
+  prize_token   String @default("ton")
+  entry_mode    entry_modes @default(one_time)
+  address       String
+  token         String
+  user_id       Int
+  collection_address String?
+  wallet_id     Int?
+  player_limit  Int       @default(0)
+  completed     Boolean   @default(false)
+  created_at    DateTime  @default(now())
+  update_at     DateTime  @default(now()) @updatedAt
+  wallet        game_wallets?  @relation(fields: [wallet_id], references: [id])
+  participants  tournament_participants[]
+  prizes        tournament_prizes[]
+  tasks         tournament_tasks[]
+}
+
+enum action_type {
+  swap
+  burn_lp
+  add_liquidity
+  give_away_prizes
+  direct_add_luquidity
+  refund
+}
+
+model tournament_actions {
+  id            String   @id @default(cuid())
+  type          action_type
+  tournament_id Int
+  amount        Float?
+  data          Json?
+  created_at    DateTime  @default(now())
+}
+
+enum tournament_participant_statuses {
+  participant
+  banner
+  winner
+  lose
+}
+
+model tournament_participants {
+  id              Int       @id @default(autoincrement())
+  tournament_id   Int
+  user_id         Int
+  wallet_id       Int?
+  best_time       Int       @default(0)
+  deaths          Int       @default(0)
+  scores          Int       @default(0)
+  status          tournament_participant_statuses    @default(participant)
+  completed       Boolean   @default(false)
+  created_at      DateTime  @default(now())
+  update_at       DateTime  @default(now()) @updatedAt
+
+  tournament      tournaments? @relation(fields: [tournament_id], references: [id])
+  user            game_users?  @relation(fields: [user_id], references: [id])
+  wallet          game_wallets? @relation(fields: [wallet_id], references: [id])
+
+  @@unique([user_id, tournament_id])
+}
+
+enum tournament_tasks_actions {
+  join
+  follow
+  retweet
+}
+
+enum socials {
+  telegram
+  twitter
+  discord
+}
+
+model tournament_tasks {
+  id        Int           @id @default(autoincrement())
+  url       String
+  action    tournament_tasks_actions @default(join)
+  social    socials @default(telegram)
+  username  String?
+  social_id String?
+  tournament_id Int
+  tournament    tournaments       @relation(fields: [tournament_id], references: [id])
+}
+
+model tournament_prizes {
+  id            Int      @id @default(autoincrement())
+  tournament_id Int
+  nft           Json?
+  network       chains
+  percent       Float?
+  amount        Float?
+  place_from    Int       @default(1)
+  place_to      Int       @default(1)
+  tournament    tournaments?  @relation(fields: [tournament_id], references: [id])
+}

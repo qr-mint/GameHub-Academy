@@ -1,0 +1,12 @@
+{
+    "name": "My Game",
+    "version": "1.0.0",
+    "title": "GAME API",
+    "url": "https://yourdomain.com",
+    "sampleUrl": "https://yourdomain.com",
+    "useHostUrlAsSampleUrl": true,
+    "template": {
+        "withCompare": false,
+        "withGenerator": true
+    }   
+}

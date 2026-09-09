@@ -1,0 +1,769 @@
+{
+  "telegram": {
+    "connect": "Connect Telegram"
+  },
+  "walletConnect": {
+    "title": "Connect wallet",
+    "subtitle": "Select a blockchain to connect to",
+    "connecting": "Connection...",
+    "connect": "Connect"
+  },
+  "tabbar": {
+    "home": "Home",
+    "achievements": "Achievements",
+    "frens": "Frens",
+    "leaderboard": "Leaderboard",
+    "styles": "Styles"
+  },
+  "wallet": "Wallet",
+  "home": {
+    "title": "Select a game mode",
+    "quickPlay": {
+      "title": "Quick play",
+      "condition": "{{amount}} per game"
+    },
+    "tournaments": {
+      "title": "Tournaments",
+      "subtitle": "Compete with others"
+    },
+    "freeGame": {
+      "title": "Free game",
+      "subtitle": "1 ticket required"
+    },
+    "editor": {
+      "title": "Editor (AI)",
+      "subtitle": "Create your level"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "sound": {
+      "title": "Sound",
+      "turnOn": "Enabled",
+      "turnOff": "Disabled"
+    },
+    "controll": {
+      "title": "Controls",
+      "joystick": "Joystick",
+      "arrows": "Arrows"
+    },
+    "cameraMode": {
+      "title": "Camara",
+      "full": "By map",
+      "player": "By player"
+    },
+    "zoom": {
+      "title": "Zoom"
+    },
+    "language": "Language",
+    "save": "Save"
+  },
+  "refillTickets": {
+    "warning": "You're out of tickets. Watch an ad or buy tickets to continue playing.",
+    "watchAds": "Watch ad",
+    "freeTicktes": "+{{amount}} tickets for free",
+    "noMoreTicketes": "No more tickets",
+    "topUpTickets": "Top up tickets",
+    "or": "or",
+    "buyTicketes": "Buy tickets",
+    "tickets": "{{quantity}} tickets",
+    "cancel": "Cancel"
+  },
+  "partners": {
+    "title": "Invite Friends",
+    "subtitle": "Earn rewards for inviting friends",
+    "frindsInvited": "friends joined",
+    "partnerNFT": {
+      "title": "Referral NFT",
+      "subtitle": "Mint an NFT to activate passive income from referrals"
+    },
+    "yourReferralLink": "Your referral link",
+    "copied": "✓ Copied",
+    "copy": "Copy",
+    "earn1": " from referral",
+    "earn2": " from tournament entries",
+    "earnToNFT": "Rewards automatically go to your ",
+    "mintButton": "Mint NFT (50 GRAM)",
+    "minted": "NFT minted! Passive income activated",
+    "connectors": {
+      "income": "Income: 30% of tickets + 10% of tournaments",
+      "minted": "Active",
+      "description": "NFT minted. Passive income is active",
+      "connect": "Connect your wallet",
+      "wallet": "Wallet:",
+      "minting": "Minting",
+      "mintButton": "Mint NFT ({{price}} {{coin}})"
+    },
+    "rewardForInvited": {
+      "title": "🎁 Rewards for Invitations",
+      "info1": {
+        "need": "1st referral",
+        "reward": "+5 tickets"
+      },
+      "info2": {
+        "need": "3rd referral",
+        "reward": "+10 tickets"
+      },
+      "info3": {
+        "need": "5th referral",
+        "reward": "+20 tickets"
+      },
+      "info4": {
+        "need": "10th referral",
+        "reward": "+50 tickets",
+        "nft": "SBT “Referral Master”"
+      },
+      "info5": {
+        "need": "25th referral",
+        "reward": "+150 tickets",
+        "nft": "SBT “Lord of Rage”"
+      },
+      "info6": {
+        "need": "50 referrals",
+        "reward": "+500 tickets",
+        "nft": "SBT “King of Invites”"
+      }
+    }
+  },
+
+  "levelSelect": {
+    "title": "Level Selection",
+    "subtitle": "Choose a level to play",
+    "bestTime": "Best time",
+    "locked": "Locked"
+  },
+
+  "leadboard": {
+    "topByReferral": "Top by Referrals",
+    "leaderTable": "Leaderboard",
+    "tab": {
+      "levels": "🎯 Levels",
+      "company": "📚 Campaigns",
+      "tournaments": "🏆 Tournaments",
+      "top": "👥 Top"
+    },
+    "top3": "TOP-3",
+    "you": "You",
+    "levels": "levels"
+  },
+
+  "achievements": {
+    "title": "Achievements",
+    "subtitle": "Your collection of achievements",
+    "locked": "Locked",
+    "received": "✓ Received",
+    "rarity": {
+      "common": "Common",
+      "rare": "Rare",
+      "epic": "Epic",
+      "legendary": "Legendary"
+    }
+  },
+
+  "tournaments": {
+    "title": "Tournaments",
+    "buttonCreate": "Create",
+    "allTournaments": "All tournaments",
+    "myTournaments": "My tournaments",
+    "empty": {
+      "subtitle1": "No tournaments created",
+      "subtitle2": "Create your first tournament!"
+    },
+    "entryAmount": "Contribution",
+    "prize": "Prize",
+    "time": "Time",
+    "pool": "Pool",
+    "players": "Players",
+    "players_count": "{{amount}} players",
+    "types": {
+      "leaderboard": {
+        "label": "Best Time",
+        "info": "Compete for the fastest level completion. You can play multiple times — only your best result counts."
+      },
+      "single_attempt": {
+        "label": "Single Attempt",
+        "info": "You only have one attempt. Your result is recorded immediately after completion or failure."
+      },
+      "survival": {
+        "label": "Survival",
+        "info": "Stay alive as long as possible and score the highest points. The player with the best score wins."
+      },
+      "race": {
+        "label": "Race",
+        "info": "The first player to complete the level wins. The tournament ends immediately once a winner is determined."
+      }
+    },
+    "my": {
+      "prizePool": "Prize pool",
+      "smartContact": "Smart contact",
+      "prizeReplenishment": "Prize replenishment",
+      "prizeInfo": "Send {{coin}} to this address to replenish the prize pool.",
+      "players": "Players",
+      "winners": "Winners",
+      "leader": "Leader",
+      "public": "Publish a tournament",
+      "play": "Start a tournament",
+      "giveAwayPrize": "Give away prizes ({{coin}})",
+      "nftPrizeTitle": "NFT prizes",
+      "nftPrizeSubtitle": "NFT prizes must be distributed manually to winners via the {{coin}} wallet.",
+      "balance": "Balance",
+      "prize": "Prize token",
+      "enter": "Enter token",
+      "users": {
+        "title": "Table of players",
+        "player": "Player",
+        "time": "Time",
+        "deaths": "Deaths",
+        "more": "+ more {{count}} players"
+      }
+    },
+    "add": {
+      "createTournament": "Create tournament",
+      "back": "Go back",
+      "next": "Next",
+      "subtitle": "Stage {{currentStage}} from {{totalSteps}}",
+      "colors": {
+        "label": "Select color",
+        "blue": "Blue",
+        "violet": "Violet",
+        "green": "Green",
+        "red": "Red",
+        "orange": "Orange",
+        "pink": "Pink"
+      },
+      "info": {
+        "name": {
+          "label": "Tournament Name",
+          "required": "Enter tournament name",
+          "placeholder": "Enter name..."
+        },
+        "description": {
+          "label": "Description",
+          "placeholder": "Describe the tournament..."
+        },
+        "players_limit": {
+          "label": "Players Limit"
+        },
+        "type": {
+          "label": "Tournament Type"
+        },
+        "schedule": {
+          "label": "Tournament Schedule",
+          "daily": "Daily",
+          "weekly": "Weekly",
+          "season": "Seasonal",
+          "special": "Specific Date"
+        },
+        "date": {
+          "label": "Event Dates",
+          "start_at": {
+            "label": "Start",
+            "required": "Enter start date"
+          },
+          "end_at": {
+            "label": "End",
+            "required": "Enter end date"
+          },
+          "errors": "Dates not selected"
+        },
+        "icon": {
+          "label": "Icon"
+        }
+      },
+      "entry": {
+        "modes": {
+          "oneTime": "One Time",
+          "perAttempt": "Per Attempt"
+        },
+        "entryType": {
+          "label": "Entry Type",
+          "token": "Token/Coin",
+          "tickets": "Tickets",
+          "ticketDesc": "Game tickets",
+          "nftDesc": "NFT Ownership",
+          "nft": "NFT"
+        },
+        "network": {
+          "label": "Blockchain"
+        },
+        "token": {
+          "label": "Token"
+        },
+        "amount": {
+          "label": "Entry Amount"
+        },
+        "tickets": {
+          "label": "Number of Tickets"
+        },
+        "collection": {
+          "label": "NFT Collection Address",
+          "optional": "Optional",
+          "description": "Only owners of NFTs from this collection can participate",
+          "verifyNFT": "Verify NFT",
+          "rules": "Only NFT owners can participate",
+          "warning": "Enter collection address. The system will verify NFT ownership before joining the tournament.",
+          "placeholder": "NFT Collection Address (EQD...)"
+        }
+      },
+      "level": {
+        "label": "Select Levels",
+        "selected": "{{count}} selected",
+        "subtitle": "Select one or more levels for this tournament",
+        "info": "Select one or more levels for this tournament",
+        "selectAll": "Select All",
+        "reset": "Reset"
+      },
+      "social": {
+        "import": {
+          "title": "Important for Telegram",
+          "description": "For automatic subscription verification, add our bot <span className=\"text-blue-300 font-mono\">{{username}}</span> to your channel or group as an administrator."
+        },
+        "label": "Social Subscriptions",
+        "optional": "Optional",
+        "subtitle": "Specify the channels that players must subscribe to for participation",
+        "add": "Add Social Network"
+      },
+      "prize": {
+        "rewardSource": {
+          "label": "Reward Source",
+          "description": "Where the prize pool is funded from",
+          "pool": {
+            "label": "Prize Pool",
+            "info": "Fixed rewards funded by tournament entry fees"
+          },
+          "dex": {
+            "label": "DEX Liquidity",
+            "info": "Rewards generated from the DEX liquidity pool"
+          },
+          "stake": {
+            "label": "Staking",
+            "info": "Rewards generated through staking"
+          }
+        },
+        "dex": {
+          "label": "Select DEX"
+        },
+        "pair": {
+          "label": "Select Pool (Pair)"
+        },
+        "winners_count": {
+          "label": "Number of Winners"
+        },
+        "list": {
+          "label": "Prize Distribution",
+          "noCollection": "Without Collection",
+          "addNFTPrize": "Add NFT Prize",
+          "place": "{{value}}-th Place",
+          "more": "... and {{winners}} more places (evenly distributed)"
+        },
+        "info": {
+          "players": "Players",
+          "entry": "Entry",
+          "levels": "Levels",
+          "prize": "Prizes"
+        },
+        "nftModal": {
+          "title": "NFT Prize",
+          "name": "NFT Name",
+          "subtitle": "Enter NFT Name",
+          "collection": "Collection (Address)",
+          "url": "Image (URL)",
+          "description": {
+            "label": "Description",
+            "placeholder": "NFT prize description..."
+          },
+          "save": "Save",
+          "cancel": "Cancel"
+        }
+      }
+    },
+    "view": {
+      "rules": "Rules",
+      "singleAttempt": {
+        "title": "Single Attempt Only",
+        "info": "You have only ONE chance to complete this tournament. If you lose, you cannot retry!",
+        "eliminated": "Eliminated",
+        "description": "You have been eliminated from this tournament. Better luck next time!"  
+      },
+      "dex": {
+        "title": "DEX Pool Rewards",
+        "pair": "Pair (Pool)",
+        "reward": "Earned",
+        "tvl": "Total funds currently in the pool",
+        "apr": "Annual return without compounding",
+        "tvlInfo": "The total value of all tokens locked in the liquidity pool.",
+        "aprInfo": "Estimated annual return. Actual rewards may vary."
+      },
+      "inviter": {
+        "title": "Invite Friends",
+        "subtitle": "Share the tournament link and invite your friends to compete together!",
+        "copied": "Copied",
+        "copy": "Copy"
+      },
+      "entry": {
+        "title": "Entry Fee",
+        "subtitle": "Required to participate in the tournament",
+        "entryFeeLabel": "Entry Fee",
+        "ticketAmount": "{{amount}} tickets",
+        "payButton": "Pay Entry Fee"
+      },
+      "survival": {
+        "title": "Survival Mode",
+        "subtitle": "Collect coins and stay alive. The longer you survive, the higher your final score.",
+        "time": "Your best score and time"
+      },
+      "prizePool": "Prize Pool",
+      "topPlayersReceivePrizes": "TOP {{count}} will receive prizes",
+      "registering": "Registering...",
+      "register": "Register",
+      "processing": "Processing...",
+      "description": {
+        "label": "Description",
+        "showLess": "Show less",
+        "showMore": "Show more"
+      },
+      "perAttempt": {
+        "title": "Tournament Mode",
+        "text": "Pay per attempt",
+        "info": "Each attempt is charged separately. Improve your result with every try!"
+      },
+      "dexSection": {
+        "title": "Пул ликвидности (DEX)",
+        "lpBalance": "Баланс LP Token",
+        "lpInitial": "было при вкладе:",
+        "tonInLiquidity": "TON в ликвидности",
+        "apr": "Годовой APR",
+        "tvl": "TVL пула",
+        "currentLpBalance": "Текущий счёт LP Token",
+        "buttons": {
+          "burnLP": "Сжечь LP",
+          "inLuquidity": "В ликвидность",
+          "refund": "Возрат"
+        },
+        "burnLpModal": {
+          "title": "Сжечь LP Token",
+          "description": "Сжигание LP Token выводит вашу долю из пула ликвидности. Взамен вы получаете обратно TON и {{jettonSymbol}} пропорционально сожжённому количеству.",
+          "lpBalance": "Было LP",
+          "becomeLp": "Станет LP",
+          "howMuchBurnLp": "Сколько LP сжечь",
+          "refund": "Вернётся",
+          "enoughLPBalance": "Недостаточно LP Token на балансе",
+          "sendRequest": "Отправка запроса...",
+          "burnLPTo": "Сжечь LP и отправить запрос",
+          "successTitle": "Запрос на сжигание отправлен",
+          "successDescription": "Сожжено {{burnAmount}} LP · возврат ≈ {{tonBack}} TON + {{jettonBack}} {{jettonSymbol}}"
+        },
+        "swapModal": {
+          "title": "Swap в пуле",
+          "description": "Это не обычный обмен на бирже. Swap происходит <span className=\"font-semibold\">внутри пула ликвидности</span> турнира на {{dexName}}. Доступен обмен только между TON и {{jettonSymbol}} этой пары — TON → {{jettonSymbol}} или {{jettonSymbol}} → TON.",
+          "sendSwapToPool": "Swap отправлен в пул",
+          "giveAway": "Отдаёте",
+          "received": "Получаете (примерно)",
+          "coursePool": "Курс пула",
+          "swapToPool": "Обмен в пуле...",
+          "doSwap": "Сделать Swap"
+        },
+
+        "addLiquidityModal": {
+          "title": "Добавить ликвидность",
+          "tonInLiquidity": "TON в ликвидности",
+          "currentApr": "Текущий APR",
+          "lpAdded": "Ликвидность добавлена",
+          "successDescription": "Внесено {{tonAmount}} TON · получено ≈ {{lpToReceive}} LP Token",
+          "howManyTonToPut": "Сколько TON положить",
+          "itWillBeRequired": "Потребуется {{jettonSymbol}}",
+          "receive": "Вы получите",
+          "adding": "Добавление...",
+          "putIntoLiquidity": "Положить в ликвидность"
+        }
+      },
+      "nftPrizes": "NFTs prizes",
+      "viewAll": "View all",
+      "leaderboardLabel": "Leaderboard",
+      "leaderboardLink": "See Full Leaderboard",
+      "participationConditions": "Participation Conditions",
+      "completed": "{{value}} completed",
+      "subscribedTo": "Subscribed to {{username}}",
+      "telegramChannel": "Telegram channel",
+      "checking": "Checking...",
+      "allTasksCompleted": "All tasks completed",
+      "checkTasks":"Check tasks",
+      "nftRequired": "NFT Required",
+      "nftRequiredInfo": "You must own an NFT from the collection to participate.",
+      "collection": "Collection",
+      "collectionInfo": "Only NFT owners from this collection can participate. Make sure the NFT is in the connected wallet.",
+      "checkingWallet": "Checking wallet...",
+      "checkNFT": "Check for NFT availability",
+      "nftNotFound": "NFT not found in your wallet",
+      "play": "Play",
+      "progress": "Progress",
+      "levelFrom": "{{value}} levels",
+      "yourTotalTime": "Your Total Time",
+      "selectLevel": "Select Level",
+      "allLevelsCompleted": "All levels completed!",
+      "bestSurvivalTime": "Best Survival Time",
+      "startSurvival": "Start Survival",
+      "startSingleAttempt": "Start (1 Attempt)",
+      "noAttemptLeft": "You have already used your attempt",
+      "notRegistered": "Not registered",
+      "comeBack": "Come back when the tournament starts to play.",
+      "playAgain": "Play Again"
+    }
+  },
+  "gameModal": {
+    "win": {
+      "title": "Level Complete!",
+      "record": "New Record!",
+      "time": "Time",
+      "best": "Best",
+      "deaths": "Deaths",
+      "reward": "Reward",
+      "buttons": {
+        "nextLevel": "Next Level",
+        "replay": "Replay",
+        "menu": "Menu"
+      }
+    },
+    "noTickets": {
+      "title": "No Tickets",
+      "subtitle": "Tickets unavailable",
+      "ticketsCount": "You have <span className=\"font-bold text-white-900\">{{tickets_count}}</span> tickets remaining.",
+      "nextTicket": "Next free ticket in",
+      "advice": "Purchase more tickets or wait for a free one.",
+      "buttons": {
+        "buyTickets": "Buy Tickets",
+        "mainMenu": "Main Menu"
+      }
+    },
+    "tournamentLose": {
+      "title": "Tournament Over",
+      "subtitle": "Better luck next time",
+      "yourTime": "Your Time",
+      "position": "Position",
+      "best": "Best",
+      "nextTournament": "Next tournament",
+      "playAgain": "Play Again",
+      "mainMenu": "Main Menu",
+      "paymentProcessing": "Payment in progress...",
+      "paymentWait": "Please wait, do not close",
+      "paymentRequired": {
+        "title": "Payment required",
+        "info": "To continue playing, you must pay for participation in the tournament."
+      }
+    },
+    "tournamentWin": {
+      "championTitle": "Champion!",
+      "nextTitle": "Level Complete!",
+      "place": "{{place}} Place",
+      "winningTime": "Winning Time",
+      "buttons": {
+        "mainMenu": "Main Menu"
+      },
+      "statuses": {
+        "pending": "Reward pending",
+        "claimed": "Reward claimed",
+        "delayed": "Reward processing"
+      }
+    }
+  },
+  "styles": {
+    "title": "Game Style",
+    "subtitle": "Visual changes only",
+    "description": "The style only affects the visual appearance. Game mechanics remain unchanged.",
+    "preview": "Preview",
+    "saved": "Saved!",
+    "save": "Save",
+    "default": "Default",
+    "purchased": "Purchased",
+    "requiredToAchieve": "Required to achieve"
+  },
+  "editor": {
+    "creator": {
+      "back": "Go back",
+      "newLevel": "New Level",
+      "form": {
+        "level": {
+          "label": "Name",
+          "placeholder": "Fire Maze"
+        },
+        "author": {
+          "label": "Author",
+          "placeholder": "Author..."
+        },
+        "grid": {
+          "label": "Grid Size",
+          "colsLabel": "Width (cols)",
+          "rowsLabel": "Height (rows)",
+          "total": "Total",
+          "cells": "cells"
+        },
+        "create": "Create"
+    }
+  },
+  "select": {
+    "levels": "Levels",
+    "createLevel": "+ Create New"
+  },
+  "workspace": {
+    "title": "Level Editor",
+    "topPanel": {
+      "createAI": {
+        "label": "Create with AI",
+        "AI": "AI",
+        "description": "Generate a level with AI"
+      },
+      "analyzeAI": {
+        "label": "Balance",
+        "analyzing": "Analyzing...",
+        "description": "AI analyzes the level balance"
+      },
+      "testAI": {
+        "stopAI": "Stop AI",
+        "stop": "Stop",
+        "stopDescrtion": "Stop the test",
+        "test": "AI Test",
+        "descriptionTest": "Run AI test"
+      },
+      "test": {
+        "stop": "Stop",
+        "stopDescription": "Stop the test",
+        "start": "Start",
+        "startDescription": "Manually test the level"
+      },
+      "save": {
+        "label": "Save",
+        "description": "Save level to the database"
+      },
+      "mint": {
+        "description": "Mint the level as an NFT on TON",
+        "label": "Mint NFT"
+      }
+    },
+    "aiGeneratePanel": {
+      "generate": "Generate",
+      "generation": "Generating...",
+      "placeholder": "A difficult maze with 10 enemies...",
+      "promt": "Prompt"
+    },
+    "aiBanner": {
+      "description": "AI is building a path and completing the level...",
+      "stop": "Stop"
+    },
+    "rightPanel": {
+      "cancel": "Cancel",
+      "delete": "🗑 Delete",
+      "apply": "Apply",
+      "jsonLevel": "Level JSON",
+      "tools": "Tools",
+      "parametres": {
+        "title": "Parameters",
+        "visual": "Visual",
+        "json": "JSON",
+        "transform": "Transform",
+        "type": {
+          "label": "Type",
+          "options": {
+            "wall": "Block / Wall",
+            "floor": "Floor",
+            "void": "Void"
+          },
+          "description": "Defines the type of the selected map cell."
+        },
+        "x": {
+          "label": "X (horizontal coordinate, px)"
+        },
+        "y": {
+          "label": "Y (vertical coordinate, px)"
+        },
+        "area": {
+          "label": "Area",
+          "cols": {
+            "label": "Cols",
+            "description": "Width of the area in cells."
+          },
+          "rows": {
+            "label": "Rows",
+            "description": "Height of the area in cells."
+          }
+        },
+        "flags": {
+          "label": "Flags",
+          "start": "Start",
+          "save": "Save",
+          "finish": "Finish"
+        },
+        "pattern": {
+            "label": "Movement Pattern",
+            "addStep": "+ Add Step",
+            "step": "Step",
+            "delete": "🗑 Delete",
+            "deltaX": {
+              "label": "ΔX",
+              "description": "Horizontal displacement in pixels."
+            },
+            "deltaY": {
+              "label": "ΔY",
+              "description": "Vertical displacement in pixels."
+            },
+            "rotation": {
+              "label": "Rotation",
+              "description": "Rotation angle in degrees."
+            },
+            "duration": {
+              "label": "Duration",
+              "description": "Movement duration (ms)."
+            },
+            "wait": {
+              "label": "Wait",
+              "description": "Pause after completing the step (ms)."
+            }
+          },
+          "formation": {
+            "title": "Formation",
+            "speed": {
+              "label": "Speed",
+              "description": "Overall movement speed of the formation."
+            },
+            "pauseTime": {
+              "label": "Pause Time"
+            },
+            "stepAngle": {
+              "label": "Step Angle"
+            },
+            "engAngle": {
+              "label": "End Angle"
+            },
+            "type": {
+              "label": "Type",
+              "options": {
+                "circle": "Circle",
+                "pause": "Pause Circle",
+                "reverce": "Reverse Circle"
+              },
+              "description": "Behavior type for all enemies in the formation."
+            },
+            "enemies": {
+              "title": "Enemies",
+              "addEnemy": "+ Add Enemy"
+            }
+          },
+          "enemy": {
+            "title": "Enemy",
+            "formation": "← Formation",
+            "radius": {
+              "label": "Radius"
+            },
+            "angle": {
+              "label": "Angle"
+            },
+            "direction": {
+              "label": "Direction",
+              "clockwise": "Clockwise",
+              "counterClockwise": "Counterclockwise"
+            }
+          }
+        }
+      }
+    }
+  }
+}

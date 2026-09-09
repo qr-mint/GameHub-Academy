@@ -1,0 +1,740 @@
+{
+  "telegram": {
+    "connect": "Подключить Telegram"
+  },
+  "walletConnect": {
+    "title": "Подключить кошелек",
+    "subtitle": "Выберите блокчейн для подключения",
+    "connecting": "Подключение...",
+    "connect": "Подключить"
+  },
+  "tabbar": {
+    "home": "Главная",
+    "achievements": "Достижения",
+    "frens": "Друзья",
+    "leaderboard": "Таблица лидеров",
+    "styles": "Стиль"
+  },
+  "wallet": "Кошелек",
+  "home": {
+    "title": "Выберите режим игры",
+    "quickPlay": {
+      "title": "Быстрая игра",
+      "condition": "{{amount}} за игру"
+    },
+    "tournaments": {
+      "title": "Турниры",
+      "subtitle": "Соревнуйтесь с другими"
+    },
+    "freeGame": {
+      "title": "Бесплатная игра",
+      "subtitle": "Требуется 1 билет"
+    },
+    "editor": {
+      "title": "Редактор (AI)",
+      "subtitle": "Создай свой уровень"
+    }
+  },
+  "settings": {
+    "title": "Настройки",
+    "sound": {
+      "title": "Звук",
+      "turnOn": "Включен",
+      "turnOff": "Выключен"
+    },
+    "controll": {
+      "title": "Управление",
+      "joystick": "Джойстик",
+      "arrows": "Стрелки"
+    },
+    "cameraMode": {
+      "title": "Камера",
+      "full": "По карте",
+      "player": "По игроку"
+    },
+    "zoom": {
+      "title": "Приближение"
+    },
+    "language": "Язык",
+    "save": "Сохранить"
+  },
+  "refillTickets": {
+    "warning": "У вас закончились билеты. Посмотрите рекламу или купите билеты, чтобы продолжить игру.",
+    "watchAds": "Посмотреть рекламу",
+    "freeTicktes": "+{{amount}} билета бесплатно",
+    "noMoreTicketes": "Билеты закончились",
+    "topUpTickets": "Пополнитель билеты",
+    "or": "или",
+    "buyTicketes": "Купить билеты",
+    "tickets": "{{quantity}} билетов",
+    "cancel": "Отмена"
+  },
+  "partners": {
+    "title": "Пригласить друзей",
+    "subtitle": "Получите бонусы за приглашения",
+    "frindsInvited": "друзей присоединились",
+    "partnerNFT":{
+      "title": "Реферальный NFT",
+      "subtitle": "Заминтите NFT чтобы активировать пассивный доход от рефералов"
+    },
+    "yourReferralLink": "Ваша реферальная ссылка",
+    "copied": "✓ Скопировано",
+    "copy": "Копировать",
+    "earn1": " от рефералов",
+    "earn2": " от входов в турниров",
+    "earnToNFT": "Доход автоматически на ваш ",
+    "mintButton": "Заминтить NFT (50 TON)",
+    "minted": "NFT заминчен! Пассивный доход активен",
+    "connectors": {
+      "income": "Доход: 20% рефералы + 5% турниров",
+      "minted": "Активна",
+      "description": "NFT заминчена. Доход активен",
+      "connect": "Подключите кошелёк сети",
+      "wallet": "Кошелёк:",
+      "minting": "Минтинг",
+      "mintButton": "Заминтить NFT ({{price}}} {{coin}})"
+    },
+    "rewardForInvited": {
+      "title": "🎁 Награды за приглашения",
+      "info1": {
+        "need": "1-й реферал",
+        "reward": "+5 билетов"
+      },
+      "info2": {
+        "need": "3-й реферал",
+        "reward": "+10 билетов"
+      },
+      "info3": {
+        "need": "5-й реферал",
+        "reward": "+20 билетов"
+      },
+      "info4": {
+        "need": "10-й реферал",
+        "reward": "+50 билетов",
+        "nft": "SBT «Referral Master»"
+      },
+      "info5": {
+        "need": "25-й реферал",
+        "reward": "+150 билетов",
+        "nft": "SBT «Lord of Rage»"
+      },
+      "info6": {
+        "need": "50-й реферал",
+        "reward": "+500 билетов",
+        "nft": "SBT «King of Invites»"
+      }
+    }
+  },
+  "levelSelect": {
+    "title": "Выбор уровня",
+    "subtitle": "Выберите уровень для прохождения",
+    "bestTime": "Лучшее время",
+    "locked": "Заблокирован"
+  },
+  "leadboard": {
+    "topByReferral": "Топ по рефералам",
+    "leaderTable": "Таблица лидеров",
+    "tab": {
+      "level": "🎯 Уровни",
+      "company": "📚 Кампании",
+      "tournaments": "🏆 Турниры",
+      "top": "👥 Топ"
+    },
+    "top3": "ТОП-3",
+    "you": "Вы",
+    "levels": "уровней"
+  },
+  "achievements": {
+    "title": "Достижения",
+    "subtitle": "Коллекция ваших достижений",
+    "locked": "Заблокировано",
+    "received": "✓ Получено",
+    "rarity": {
+      "common": "Обычное",
+      "rare": "Редкое",
+      "epic": "Эпическое",
+      "legendary": "Легендарное"
+    }
+  },
+
+  "tournaments": {
+    "title": "Турниры",
+    "buttonCreate": "Создать",
+    "allTournaments": "Все турниры",
+    "myTournaments": "Мои турниры",
+    "empty": {
+      "subtitle1": "Нет созданных турниров",
+      "subtitle2": "Создайте свой первый турнир!"
+    },
+    "entryAmount": "Взнос",
+    "prize": "Приз",
+    "time": "Время",
+    "pool": "Пул",
+    "players": "Игроки",
+    "playsers_count": "{{amount}} игроки",
+    "my": {
+      "prizePool": "Призовой пул",
+      "smartContact": "Смарт-контракт",
+      "prizeReplenishment": "Пополнение призов",
+      "prizeInfo": "Отправьте {{coin}} на этот адрес чтобы пополнить призовой пул",
+      "players": "Игроков",
+      "winners": "Победителей",
+      "leader": "Лидер",
+      "public": "Опубликовать турнир",
+      "play": "Запустить турнир",
+      "giveAwayPrize": "Раздать призы ({{coin}})",
+      "nftPrizeTitle": "NFT призы",
+      "nftPrizeSubtitle": "NFT призы необходимо раздать вручную победителям через {{coin}} кошелек",
+      "balance": "Баланс",
+      "prize": "Призовой токен",
+      "enter": "Токен входа",
+       "users": {
+        "title": "Таблица игроков",
+        "player": "Игрок",
+        "time": "Время",
+        "deaths": "Смерть",
+        "more": "+ ещё {{count}} игроков"
+      }
+    },
+    "add": {
+      "back": "Назад",
+      "next": "Далее",
+      "createTournament": "Создать турнир",
+      "subtitle": "Этап {{currentStage}} из {{totalSteps}}",
+      "colors": {
+        "label": "Цвет плашки",
+        "blue": "Синий",
+        "violet": "Фиолетовый",
+        "green": "Зеленый",
+        "red": "Красный",
+        "orange": "Оранжевый",
+        "pink": "Розовый"
+      },
+      "info": {
+        "name": {
+          "label": "Название турнира",
+          "required": "Введите название турнира",
+          "placeholder": "Введите название..."
+        },
+        "description": {
+          "label": "Описание",
+          "placeholder": "Опишите турнир..."
+        },
+        "players_limit": {
+          "label": "Лимит игроков"
+        },
+        "types": {
+          "label": "Тип турнира",
+          "leaderboard": {
+            "label": "Лучшее время",
+            "info": "Соревнуйтесь за самое быстрое прохождение уровня. Можно играть несколько раз — в зачёт идёт лучший результат."
+          },
+          "single_attempt": {
+            "label": "Один шанс",
+            "info": "У вас есть только одна попытка. Результат фиксируется сразу после прохождения или ошибки."
+          },
+          "survival": {
+            "label": "Выживание",
+            "info": "Продержитесь как можно дольше и наберите максимум очков. Побеждает игрок с лучшим результатом."
+          },
+          "race": {
+            "label": "Гонка",
+            "info": "Побеждает тот, кто первым проходит уровень. Турнир завершается сразу после определения победителя."
+          }
+        },
+        "schedule": {
+          "label": "Расписания турнира",
+          "daily": "Ежедневный",
+          "weekly": "Недельный",
+          "season": "Сезонный",
+          "special": "По дате"
+        },
+        "date": {
+          "label": "Даты проведения",
+          "start_at": {
+            "label": "Начало",
+            "required": "Укажите дату начала"
+          },
+          "end_at": {
+            "label": "Конец",
+            "required": "Укажите дату конца"
+          },
+          "errors": "Даты не выбраны"
+        },
+        "icon": {
+          "icon": "Иконка"
+        }
+      },
+      "entry": {
+        "modes": {
+          "oneTime": "Один раз",
+          "perAttempt": "За попытку"
+        },
+        "entryType": {
+          "label": "Тип взноса",
+          "token": "Токен/Монета",
+          "tickets": "Билеты",
+          "ticketDesc": "Игровые билеты",
+          "nftDesc": "Владение NFT",
+          "nft": "NFT"
+        },
+        "network": {
+          "label": "Блокчейн"
+        },
+        "token": {
+          "label": "Токен"
+        },
+        "amount": {
+          "label": "Сумма взноса"
+        },
+        "tickets": {
+          "label": "Количество билетов"
+        },
+        "collection": {
+          "label": "Адрес NFT коллекции",
+          "optional": "Опционально",
+          "description": "Только владельцы NFT из этой коллекции смогут участвовать",
+          "verifyNFT": "Проверка NFT",
+          "rules": "Только владельцы NFT смогут участвовать",
+          "warning": "Укажите адрес коллекции. Система проверит владение NFT перед входом в турнир.",
+          "placeholder": "Адрес NFT коллекции (EQD...)"
+        }
+      },
+      "level": {
+        "label": "Выберите уровни",
+        "selected": "{{count}} выбрано",
+        "subtitle": "Выберите один или несколько уровней для этого турнира",
+        "info": "Выберите один или несколько уровней для этого турнира",
+        "selectAll": "Выбрать все",
+        "reset": "Сбросить"
+      },
+      "social": {
+        "import": {
+          "title": "Важно для телеграмм",
+          "description": "Для автоматической проверки подписки добавьте нашего бота <span className=\"text-blue-300 font-mono\">{{username}}</span> в ваш канал или группу как администратора."
+        },
+        "label": "Подписки на соцсети",
+        "optional": "Опционально",
+        "subtitle": "Укажите каналы на которые игроки должны подписаться для участия",
+        "add": "Добавить соцсеть"
+      },
+      "prize": {
+        "winners_count": {
+          "label": "Количество победителей"
+        },
+        "list": {
+          "label": "Распределение призов",
+          "noCollection": "Без коллекции",
+          "addNFTPrize": "Добавить NFT приз",
+          "place": "{{value}}-e место",
+          "more": "... и ещё {{winners}} мест (распределение равномерное)"
+        },
+        "info": {
+          "players": "Игроки",
+          "entry": "Взнос",
+          "levels": "Уровни",
+          "prize": "Призы"
+        },
+        "nftModal": {
+          "title": "NFT Приз",
+          "name": "Название NFT",
+          "subtitle": "Укажите название NFT",
+          "collection": "Коллекция (адрес)",
+          "url": "Изображение (URL)",
+          "description": {
+            "label": "Описание",
+            "placeholder": "Описание NFT приза..."
+          },
+          "save": "Сохранить",
+          "cancel": "Отмена"
+        }
+      }
+    },
+    "view": {
+      "rules": "Правила",
+      "singleAttempt": {
+        "title": "Только одна попытка",
+        "info": "У вас только ОДНА попытка пройти этот турнир. Если проиграете — повторно участвовать нельзя!",
+        "eliminated": "Выбыли",
+        "description": "Вы выбиты из турнира. Удачи в следующий раз!"
+      },
+      "dex": {
+        "title": "Награды из DEX-пула",
+        "pair": "Пара (пул)",
+        "reward": "Начислено",
+        "tvl": "Сколько всего средств сейчас находится в пуле",
+        "apr": "Годовая доходность без сложного процента",
+        "tvlInfo": "Общая стоимость всех токенов, заблокированных в пуле ликвидности.",
+        "aprInfo": "Ожидаемая годовая доходность. Фактическая прибыль может отличаться."
+      },
+      "inviter": {
+        "title": "Пригласить друзей",
+        "subtitle": "Поделитесь ссылкой на турнир — приглашайте друзей соревноваться вместе!",
+        "copied": "Скопировано",
+        "copy": "Копировать"
+      },
+      "entry": {
+        "title": "Вступительный взнос",
+        "subtitle": "Необходим для участия в турнире",
+        "entryFeeLabel": "Сумма взноса",
+        "ticketAmount": "{{amount}} билетов",
+        "payButton": "Оплатить взнос"
+      },
+      "survival": {
+        "title": "Режим выживания",
+        "subtitle": "Собирай монеты и выживай. Чем дольше живёшь — тем выше твой итоговый счёт.",
+        "time": "Ваш лучший результат и время"
+      },
+      "prizePool": "Призовой фонд",
+       "topPlayersReceivePrizes": "ТОП-{{count}} получат призы",
+      "processing": "Обработка...",
+      "description": {
+        "label": "Описание",
+        "showLess": "Показать меньше",
+        "showMore": "Показать больше"
+      },
+      "perAttempt": {
+        "title": "Режим турнира",
+        "text": "Оплата за попытку",
+        "info": "Каждая попытка оплачивается отдельно. Улучшайте результат с каждым разом!"
+      },
+      "dexSection": {
+        "title": "Пул ликвидности (DEX)",
+        "lpBalance": "Баланс LP Token",
+        "lpInitial": "было при вкладе:",
+        "tonInLiquidity": "{{ton}} в ликвидности",
+        "apr": "Годовой APR",
+        "tvl": "TVL пула",
+        "currentLpBalance": "Текущий счёт LP Token",
+        "buttons": {
+          "burnLP": "Сжечь LP",
+          "inLuquidity": "В ликвидность",
+          "refund": "Возрат"
+        },
+        "burnLpModal": {
+          "title": "Сжечь LP Token",
+          "description": "Сжигание LP Token выводит вашу долю из пула ликвидности. Взамен вы получаете обратно {{ton}} и {{jettonSymbol}} пропорционально сожжённому количеству.",
+          "lpBalance": "Было LP",
+          "becomeLp": "Станет LP",
+          "howMuchBurnLp": "Сколько LP сжечь",
+          "refund": "Вернётся",
+          "enoughLPBalance": "Недостаточно LP Token на балансе",
+          "sendRequest": "Отправка запроса...",
+          "burnLPTo": "Сжечь LP и отправить запрос",
+          "successTitle": "Запрос на сжигание отправлен",
+          "successDescription": "Сожжено {{burnAmount}} LP · возврат ≈ {{tonBack}} TON + {{jettonBack}} {{jettonSymbol}}"
+        },
+        "swapModal": {
+          "title": "Swap в пуле",
+          "description": "Это не обычный обмен на бирже. Swap происходит <span className=\"font-semibold\">внутри пула ликвидности</span> турнира на {{dexName}}. Доступен обмен только между TON и {{jettonSymbol}} этой пары — TON → {{jettonSymbol}} или {{jettonSymbol}} → TON.",
+          "sendSwapToPool": "Swap отправлен в пул",
+          "giveAway": "Отдаёте",
+          "received": "Получаете (примерно)",
+          "coursePool": "Курс пула",
+          "swapToPool": "Обмен в пуле...",
+          "doSwap": "Сделать Swap"
+        },
+        "addLiquidityModal": {
+          "title": "Добавить ликвидность",
+          "tonInLiquidity": "TON в ликвидности",
+          "currentApr": "Текущий APR",
+          "lpAdded": "Ликвидность добавлена",
+          "successDescription": "Внесено {{tonAmount}} TON · получено ≈ {{lpToReceive}} LP Token",
+          "howManyTonToPut": "Сколько TON положить",
+          "itWillBeRequired": "Потребуется {{jettonSymbol}}",
+          "receive": "Вы получите",
+          "adding": "Добавление...",
+          "putIntoLiquidity": "Положить в ликвидность"
+        }
+      },
+      "nftPrizes": "NFT в призах",
+      "viewAll": "Посмотреть все",
+      "leaderboardLabel": "Рейтинг",
+      "leaderboardLink": "Посмотреть полный рейтинг",
+      "participationConditions": "Условия участия",
+      "completed": "Выполнено",
+      "subscribedTo": "Подписан на",
+      "telegramChannel": "Telegram канал",
+      "checking": "Проверка...",
+      "allTasksCompleted": "Все задания выполнены",
+      "checkTasks":" Проверить подписки",
+      "nftRequired": "Требуется NFT",
+      "nftRequiredInfo": "Для участия необходимо владеть NFT из коллекции.",
+      "collection": "Коллекция",
+      "collectionInfo": "Участвовать могут только владельцы NFT из этой коллекции. Убедитесь, что NFT находится в подключенном кошельке.",
+      "checkingWallet": "Проверка кошелька...",
+      "checkNFT": "Проверить наличие NFT",
+      "nftNotFound": "NFT не найден в вашем кошельке",
+      "play": "Играть",
+      "progress": "Прогресс",
+      "levelFrom": "{{value}} уровни",
+      "yourTotalTime": "Ваше общее время",
+      "selectLevel": "Выберите уровень",
+      "allLevelsCompleted": "Все уровни пройдены!",
+      "bestSurvivalTime": "Лучшее время выживания",
+      "startSurvival": "Начать режим выживания",
+      "startSingleAttempt": "Начать (1 попытка)",
+      "noAttemptLeft": "Вы уже использовали свою попытку",
+      "notRegistered": "Не зарегистрирован",
+      "comeBack": "Вернитесь, когда турнир начнется, чтобы играть.",
+      "playAgain": "Сыгать еще раз"
+    }
+  },
+  
+  "gameModal": {
+    "win": {
+      "title": "Уровень пройден!",
+      "record": "Новый рекорд!",
+      "time": "Время",
+      "best": "Лучшее",
+      "deaths": "Смерти",
+      "reward": "Награда",
+      "buttons": {
+        "nextLevel": "Следующий уровень",
+        "replay": "Переиграть",
+        "menu": "Меню"
+      }
+    },
+    "noTickets": {
+      "title": "Нет билетов",
+      "subtitle": "Билеты недоступны",
+      "ticketsCount": "У вас осталось <span className=\"font-bold text-white-900\">{{tickets_count}}</span> билетов.",
+      "nextTicket": "Следующий бесплатный билет через",
+      "advice": "Купите билеты или дождитесь бесплатного.",
+      "buttons": {
+        "buyTickets": "Купить билеты",
+        "mainMenu": "Главное меню"
+      }
+    },
+    "tournamentLose": {
+      "title": "Турнир завершён",
+      "subtitle": "В следующий раз повезёт больше",
+      "yourTime": "Ваше время",
+      "position": "Место",
+      "best": "Лучшее",
+      "nextTournament": "Следующий турнир",
+      "playAgain": "Играть снова",
+      "mainMenu": "Главное меню",
+      "paymentProcessing": "Оплата обрабатывается...",
+      "paymentWait": "Пожалуйста, не закрывайте окно",
+      "paymentRequired": {
+        "title": "Требуется оплата",
+        "info": "Для продолжения игры необходимо оплатить участие в турнире"
+      }
+    },
+    "tournamentWin": {
+      "championTitle": "Чемпион!",
+      "nextTitle": "Уровень пройден!",
+      "place": "{{place}} место",
+      "winningTime": "Победное время",
+      "buttons": {
+        "mainMenu": "Главное меню"
+      },
+      "statuses": {
+        "pending": "Награда ожидается",
+        "claimed": "Награда получена",
+        "delayed": "Награда обрабатывается"
+      }
+    }
+  },
+  "styles": {
+    "title": "Стиль игры",
+    "subtitle": "Только визуальные изменения",
+    "description": "Стиль влияет только на визуальное оформление. Механика игры остается неизменной.",
+    "preview": "Предпросмотр",
+    "saved": "Сохранено!",
+    "save": "Сохранить",
+    "default": "По умолчанию",
+    "purchased": "Куплено",
+    "requiredToAchieve": "Required to achieve"
+  },
+  "editor": {
+    "creator": {
+      "back": "Go back",
+      "newLevel": "New level",
+      "form": {
+        "level": {
+          "label": "Название",
+          "placeholder": "Огненный лабиринт"
+        },
+        "author": {
+          "label": "Автор",
+          "placeholder": "Автор..."
+        },
+        "grid": {
+          "label": "Размер сетки",
+          "colsLabel": "Ширина (cols)",
+          "rowsLabel": "Высота (rows)",
+          "total": "Итог",
+          "cells": "клеток"
+        },
+        "create": "Создать"
+      }
+    },
+    "select": {
+      "levels": "Уровни",
+      "createLevel": "+ Создать новый"
+    },
+    "workspace": {
+      "title": "Редактор",
+      "topPanel": {
+        "createAI": {
+          "label": "Создать с ИИ",
+          "AI": "AI",
+          "description": "Сгенерировать уровень через ИИ"
+        },
+        "analyzeAI": {
+          "label": "Баланс",
+          "analyzing": "Анализ...",
+          "description": "ИИ анализирует баланс уровня"
+        },
+        "testAI": {
+          "stopAI": "Стоп ИИ",
+          "stop": "Stop",
+          "stopDescrtion": "Остановить тест",
+          "test": "Тест AI",
+          "descriptionTest": "Запустить тест"
+        },
+        "test": {
+          "stop": "stop",
+          "stopDescription": "Остановить тест",
+          "start": "start",
+          "startDescription": "Ручной тест уровня"
+        },
+        "save": {
+          "label": "Сохранить",
+          "description": "Сохранить уровень в БД"
+        },
+        "mint": {
+          "description": "Минтить уровень как NFT на TON",
+          "label": "Минт NFT"
+        }
+      },
+      "aiGeneratePanel": {
+        "generate": "Генерировать",
+        "generation": "Генерация...",
+        "placeholder": "Сложный лабиринт с 10 врагами..",
+        "promt": "Промпт"
+      },
+      "aiBanner": {
+        "description": "ИИ строит путь и проходит уровень...",
+        "stop": "Остановить"
+      },
+      "rightPanel": {
+        "cancel": "Отмена",
+        "delete": "🗑 Удалить",
+        "apply": "Применить",
+        "jsonLevel": "JSON уровня",
+        "tools": "Инструменты",
+        "parametres": {
+          "title": "Parameters",
+          "visual": "Visual",
+          "json": "JSON",
+          "transform": "Transform",
+          "type": {
+            "label": "Type",
+            "options": {
+              "wall": "Block / Wall",
+              "floor": "Floor",
+              "void": "void"
+            },
+            "description": "Определяет тип выбранной клетки карты."
+          },
+          "x": {
+            "label": "X (координата по горизонтали, px)"
+          },
+          "y": {
+            "label": "Y (координата по вертикали, px)"
+          },
+          "area": {
+            "label": "Area",
+            "cols": {
+              "label": "Cols",
+              "description": " Ширина зоны в клетках."
+            },
+            "rows": {
+              "label": "Rows",
+              "description": "Высота зоны в клетках."
+            }
+          },
+          "flags": {
+            "label": "Flags",
+            "start": "Start",
+            "save": "Save",
+            "finish": "Finish"
+          },
+          "pattern": {
+            "label": "Movement Pattern",
+            "addStep": "+ Добавить шаг",
+            "step": "Step",
+            "delete": "🗑 Удалить",
+            "deltaX": {
+              "label": "ΔX",
+              "description": "Смещение по X в пикселях."
+            },
+            "deltaY": {
+              "label": "ΔY",
+              "description": "Смещение по Y в пикселях."
+            },
+            "rotation": {
+              "label": "Rotation",
+              "description": "Угол поворота в градусах."
+            },
+            "duration": {
+              "label": "Duration",
+              "description": "Время движения (мс)."
+            },
+            "wait": {
+              "label": "Wait",
+              "description": "Пауза после завершения шага (мс)."
+            }
+          },
+          "formation": {
+            "title": "Formation",
+            "speed": {
+              "label": "Speed",
+              "description": "Общая скорость движения формации."
+            },
+            "pauseTime": {
+              "label": "Pause Time"
+            },
+            "stepAngle": {
+              "label": "StepAngle"
+            },
+            "engAngle": {
+              "label": "End Angle"
+            },
+            "type": {
+              "label": "Type",
+              "options": {
+                "circle": "Circle",
+                "pause": "Pause Circle",
+                "reverce": "Reverse Circle"
+              },
+              "description": "Тип поведения всех врагов в формации."
+            },
+            "enemies": {
+              "title": "Enemies",
+              "addEnemy": "+ Add Enemy"
+            }
+          },
+          "enemy": {
+            "title": "Enemy",
+            "formation": "← Formation",
+            "radius": {
+              "label": "Radius"
+            },
+            "angle": {
+              "label": "Angle"
+            },
+            "direction": {
+              "label": "Direction",
+              "clockwise": "Clockwise",
+              "counterClockwise": "Counter Clockwise"
+            }
+          }
+        }
+      }
+    }
+  }
+}

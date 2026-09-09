@@ -1,0 +1,28 @@
+services:
+  game-core:
+    build: ${CORE_PATH}
+    hostname: ${CORE_NAME}
+    container_name: ${CORE_NAME}
+    restart: "always"
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "1"
+    expose:
+        - ${CORE_PORT}
+    volumes:
+      - ${CORE_PATH}/data:/core/data
+      - ${CORE_PATH}/collections:/core/collections
+      - ${CORE_PATH}/public:/core/public
+    networks:
+       - qrmint
+    labels:
+       - "traefik.docker.network=qrmint-proxy"
+       - "traefik.enable=true"
+       - "traefik.http.routers.${CORE_NAME}.rule=Host(`$CORE_HOSTNAME`)"
+       - "traefik.http.routers.${CORE_NAME}.tls.certresolver=default"
+networks:
+  qrmint:
+    driver: bridge
+    name: qrmint-proxy

@@ -1,0 +1,50 @@
+{
+  "ton": {
+    "url": "https://ton.org",
+    "decimals": 9
+  },
+  "core": {
+    "url": "https://coredao.org",
+    "decimals": 18
+  },
+  "flow": {
+    "url": "https://flow.com",
+    "decimals": 18
+  },
+  "sei": {
+    "url": "https://sei.io",
+    "decimals": 18
+  },
+  "cosmos_mantra": {
+    "url": "https://ru.mantrachain.io/",
+    "decimals": 6
+  },
+  "cosmos_gonka": {
+    "url": "https://gonka.ai/",
+    "decimals": 6
+  },
+  "duckchain": {
+    "url": "https://duckchain.io/",
+    "decimals": 18
+  },
+  "kaia": {
+    "url": "https://kaia.io/",
+    "decimals": 18
+  },
+  "bsc": {
+    "url": "https://www.bnbchain.org/",
+    "decimals": 18
+  },
+  "solana": {
+    "url": "https://solana.com/",
+    "decimals": 9
+  },
+  "casper": {
+    "url": "https://www.casper.network/ai",
+    "decimals": 9
+  },
+  "botchain": {
+    "url": "https://botchain.ai/",
+    "decimals": 18
+  }
+}
