@@ -86,20 +86,19 @@ export const createTournament = async ({
     if (prizePercentTotal > 100) {
       return { error: "Prizes percent total more then 100!" };
     }
-    const connector = connectors[network];
-    
-    if (!connector) {
+  
+    if (!["ton", "botchain"].includes(network)) {
       return { error: `${network} does not support!` };
     }
     if (collection_address) {
-      if (!connector.isValid(collection_address)) {
-        return { error: 'Collection address' };
-      }
+      // if (!connector.isValid(collection_address)) {
+      //   return { error: 'Collection address' };
+      // }
     }
     if (owner_address) {
-      if (!connector.isValid(owner_address)) {
-        return { error: 'Owner address incorrect' };
-      }
+      // if (!connector.isValid(owner_address)) {
+      //   return { error: 'Owner address incorrect' };
+      // }
     }
     const wallet = await prisma.game_wallets.findFirst({
       where: { address: owner_address }

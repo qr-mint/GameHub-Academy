@@ -1,12 +1,12 @@
 const { Router } = require("express");
 const { default: BigNumber } = require("bignumber.js");
+const axios = require('axios');
 
 const Response = require("../utils/ApiResponse");
 const prisma = require("../prisma");
 const passport = require("../config/passport");
-const connectors = require("../modules/connectors");
 
-const { gameBot } = require("../hardest-game-bot");
+const { gameBot } = require("../game-bot");
 const tournamentModule = require("../modules/tournaments");
 const networks = require("../config/network.json");
 
@@ -318,14 +318,17 @@ router
       if (!tournament) {
         return res.status(404).json(new Response().error("Tourname does not found"))
       }
-      const connector = connectors[tournament.network];
-      if (!connector) {
-        return res.status(400).json(new Response().error(`${network} does not support!`));
+
+      if (!["ton", "botchain"].includes(tournament.network)) {
+        return res.status(400).json(new Response().error(`${tournament.network} does not support!`));
       }
-		  const is_nft = await connector.checkNft(tournament.collection_address, req.query.address);
-      if (!is_nft) {
-        return res.json(new Response().ok(0));
-      }
+      // const result = await axios.get(`${API_BASE_HOST}/collections/${tournament.collection_key}/verify/${req.query.address}`, {
+      //   headers: { 'Authorization': `Bearer ${accessToken}` }
+      // });
+		  // const is_nft = await connector.checkNft(tournament.collection_address, req.query.address);
+      // if (!is_nft) {
+      //   return res.json(new Response().ok(0));
+      // }
       return res.json(new Response().ok(1));
     } catch (err) {
       await gameBot.api.sendMessage(406497473, `game/tournaments/social-verify/${err.message}`);
@@ -525,25 +528,34 @@ router
       if (!tournament) {
         return res.status(404).json(new Response().error("Tourname does not found"))
       }
-      const connector = connectors[tournament.network];
-      if (!connector) {
-        return res.status(400).json(new Response().error(`${network} does not support!`));
+      if (!["ton", "botchain"].includes(tournament.network)) {
+        return res.status(400).json(new Response().error(`${tournament.network} does not support!`));
       }
-      let balance = await connector.getBalance(tournament.address);
+      let balance;
+      const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}`, {
+        headers: { 'Authorization': `Bearer ${accessToken}` }
+      });
+      if (result.data.ok) {
+        balance = result.data.data.balance.human;
+      } else {
+        balance = '0';
+      }
       const balances = {
         [tournament.currency_token]: {
-          balance: new BigNumber(balance).div(10 ** networks[tournament.network].decimals).toNumber(),
+          balance: balance,
           is: ["ton", "bot"].includes(tournament.currency_token) ? 'enter' : ["ton", "bot"].includes(tournament.prize_token) ? 'prize' : 'balance in nattive coin',
         },
       }
       if (["ton", "botchain"].includes(tournament.network) && !["ton", "bot"].includes(tournament.currency_token)) {
         try {
-          const token = await prisma.tokens.findFirst({
-            where: { currency: tournament.currency_token }
+          const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}`, {
+            headers: { 'Authorization': `Bearer ${accessToken}` }
           });
-          const jettonWalletAddress = await connector.jettonWalletAddress(tournament.address, token.address, token.wallet_code);
-          balance = await connector.getTokenBalance(jettonWalletAddress);
-          balance = new BigNumber(balance).div(10 ** networks[tournament.network].decimals).toNumber();
+          if (result.data.ok) {
+            balance = result.data.data.balance.human;
+          } else {
+            balance = 0;
+          }
         } catch (err) {
           balance = 0;
         }
@@ -554,23 +566,25 @@ router
       }
       if (["ton", "botchain"].includes(tournament.prize_network) && !["ton", "bot"].includes(tournament.prize_token) && tournament.prize_token != tournament.token) {
         try {
-          const token = await prisma.tokens.findFirst({
-            where: { currency: tournament.prize_token }
+          const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.prize_network}/${tournament.address}`, {
+            headers: { 'Authorization': `Bearer ${accessToken}` }
           });
-          const jettonWalletAddress = await connector.jettonWalletAddress(tournament.address, token.address, token.wallet_code);
-          balance = await connector.getTokenBalance(jettonWalletAddress);
-          balance = new BigNumber(balance).div(10 ** networks[tournament.network].decimals).toNumber();
+          if (result.data.ok) {
+            balance = result.data.data.balance.human;
+          } else {
+            balance = '0';
+          }
         } catch (err) {
           balance = 0;
         }
         balances[tournament.prize_token] = {
-          balance: new BigNumber(balance).div(10 ** networks[tournament.network].decimals).toNumber(),
+          balance,
           is: 'prize',
         }
       }
       tournament.accounts = balances;
       if (tournament.collection_address) {
-        const collection = await connector.getCollection(tournament.collection_address);
+        const collection = {};
         tournament.collection = collection;
       }
       return res.json(new Response().data(tournament)); 
@@ -644,22 +658,29 @@ router
       if (!tournament) {
         return res.status(404).json(new Response().error("Tourname does not found"))
       }
-      const connector = connectors[tournament.network];
-      if (!connector) {
+      if (!["ton", "botchain"].includes(tournament.network)) {
         return res.status(400).json(new Response().error(`${tournament.network} does not support!`));
       }
       let entry_balance;
       try {
         if (["ton", "botchain"].includes(tournament.network) && !["ton", "bot"].includes(tournament.currency_token)) {
-          const token = await prisma.tokens.findFirst({
-            where: { currency: tournament.currency_token }
+          const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}/${tournament.currency_token}`, {
+            headers: { 'Authorization': `Bearer ${accessToken}` }
           });
-          const jettonWalletAddress = await connector.jettonWalletAddress(tournament.address, token.address, token.wallet_code);
-          entry_balance = await connector.getTokenBalance(jettonWalletAddress);
-          entry_balance = new BigNumber(entry_balance).div(10 ** networks[tournament.network].decimals).toNumber();
+          if (result.data.ok) {
+            entry_balance = result.data.data.balance.human;
+          } else {
+            entry_balance = '0';
+          }
         } else {
-          entry_balance = await connector.getBalance(tournament.address);
-          entry_balance = new BigNumber(entry_balance).div(10 ** networks[tournament.network].decimals).toNumber();
+          const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}`, {
+            headers: { 'Authorization': `Bearer ${accessToken}` }
+          });
+          if (result.data.ok) {
+            entry_balance = result.data.data.balance.human;
+          } else {
+            entry_balance = '0';
+          }
         }
       } catch (err) {
         entry_balance = 0;
@@ -671,22 +692,30 @@ router
         if (tournament.network === tournament.prize_network && tournament.currency_token === tournament.prize_token) {
           prize_balance = tournament.entry_balance;
         } else if (["ton", "botchain"].includes(tournament.prize_network) && !["ton", "bot"].includes(tournament.prize_token)) {
-          const token = await prisma.tokens.findFirst({
-            where: { currency: tournament.prize_token }
+          const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.prize_network}/${tournament.address}/${tournament.prize_token}`, {
+            headers: { 'Authorization': `Bearer ${accessToken}` }
           });
-          const jettonWalletAddress = await connector.jettonWalletAddress(tournament.address, token.address, token.wallet_code);
-          prize_balance = await connector.getTokenBalance(jettonWalletAddress);
-          prize_balance = new BigNumber(prize_balance).div(10 ** networks[tournament.network].decimals).toNumber();
+          if (result.data.ok) {
+            prize_balance = result.data.data.balance.human;
+          } else {
+            prize_balance = '0';
+          }
         } else {
-          prize_balance = await connector.getBalance(tournament.address);
-          prize_balance = new BigNumber(prize_balance).div(10 ** networks[tournament.network].decimals).toNumber();
+          const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.prize_network}/${tournament.address}`, {
+            headers: { 'Authorization': `Bearer ${accessToken}` }
+          });
+          if (result.data.ok) {
+            prize_balance = result.data.data.balance.human;
+          } else {
+            prize_balance = '0';
+          }
         }
       } catch (err) {
         prize_balance = 0;
       }
       tournament.prize_balance = prize_balance;
       if (tournament.collection_address) {
-        const collection = await connector.getCollection(tournament.collection_address);
+        const collection = {};
         tournament.collection = collection;
       }
       return res.json(new Response().data(tournament)); 
@@ -965,14 +994,14 @@ router
       if (!req.query.address) {
         return res.json(new Response().json("Onwer address incorrect"));
       }
-      const connector = connectors[tournament.network];
-      if (!connector) {
+      
+      if (!["ton", "botchain"].includes(tournament.network)) {
         return res.status(400).json(new Response().error(`${tournament.network} does not support!`));
       }
-		  const is_nft = await connector.checkNft(tournament.collection_address, req.query.address);
-      if (!is_nft) {
-        return res.json(new Response().error("errors.notNFT"));
-      }
+		  // const is_nft = await connector.checkNft(tournament.collection_address, req.query.address);
+      // if (!is_nft) {
+      //   return res.json(new Response().error("errors.notNFT"));
+      // }
     }
     if (tournament.entry_tickets) {
       if (tournament.entry_tickets > req.user.tickets) {

@@ -49,7 +49,6 @@ app.use((req, res, next) => {
 app
   .use("/", require("./routes"))
   .use("/images", express.static("public/images"))
-
   .get("/*", async (_, res) => {
     return res.status(404).json({ message: "not found", data: null });
   });
