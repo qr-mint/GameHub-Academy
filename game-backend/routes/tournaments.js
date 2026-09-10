@@ -323,7 +323,7 @@ router
         return res.status(400).json(new Response().error(`${tournament.network} does not support!`));
       }
       // const result = await axios.get(`${API_BASE_HOST}/collections/${tournament.collection_key}/verify/${req.query.address}`, {
-      //   headers: { 'Authorization': `Bearer ${accessToken}` }
+      //   headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
       // });
 		  // const is_nft = await connector.checkNft(tournament.collection_address, req.query.address);
       // if (!is_nft) {
@@ -533,7 +533,7 @@ router
       }
       let balance;
       const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}/${tournament.currency_token}`, {
-        headers: { 'Authorization': `Bearer ${accessToken}` }
+        headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
       });
       if (result.data.ok) {
         balance = result.data.data.balance.human;
@@ -549,7 +549,7 @@ router
       if (["ton", "botchain"].includes(tournament.network) && !["ton", "bot"].includes(tournament.currency_token)) {
         try {
           const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}/${tournament.currency_token}`, {
-            headers: { 'Authorization': `Bearer ${accessToken}` }
+            headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
             balance = result.data.data.balance.human;
@@ -567,7 +567,7 @@ router
       if (tournament.prize_network === tournament.prize_token) {
         try {
           const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.prize_network}/${tournament.address}`, {
-            headers: { 'Authorization': `Bearer ${accessToken}` }
+            headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
             balance = result.data.data.balance.human;
@@ -584,7 +584,7 @@ router
       } else if (["ton", "botchain"].includes(tournament.prize_network) && !["ton", "bot"].includes(tournament.prize_token) && tournament.prize_token != tournament.token) {
         try {
           const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.prize_network}/${tournament.address}/${tournament.prize_token}`, {
-            headers: { 'Authorization': `Bearer ${accessToken}` }
+            headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
             balance = result.data.data.balance.human;
@@ -682,7 +682,7 @@ router
       try {
         if (["ton", "botchain"].includes(tournament.network) && !["ton", "bot"].includes(tournament.currency_token)) {
           const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}/${tournament.currency_token}`, {
-            headers: { 'Authorization': `Bearer ${accessToken}` }
+            headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
             entry_balance = result.data.data.balance.human;
@@ -691,7 +691,7 @@ router
           }
         } else {
           const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}`, {
-            headers: { 'Authorization': `Bearer ${accessToken}` }
+            headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
             entry_balance = result.data.data.balance.human;
@@ -710,7 +710,7 @@ router
           prize_balance = tournament.entry_balance;
         } else if (["ton", "botchain"].includes(tournament.prize_network) && !["ton", "bot"].includes(tournament.prize_token)) {
           const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.prize_network}/${tournament.address}/${tournament.prize_token}`, {
-            headers: { 'Authorization': `Bearer ${accessToken}` }
+            headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
             prize_balance = result.data.data.balance.human;
@@ -719,7 +719,7 @@ router
           }
         } else {
           const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.prize_network}/${tournament.address}`, {
-            headers: { 'Authorization': `Bearer ${accessToken}` }
+            headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
             prize_balance = result.data.data.balance.human;
