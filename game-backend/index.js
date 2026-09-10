@@ -47,7 +47,7 @@ app.use((req, res, next) => {
 });
 
 app
-  .use("/game", require("./routes"))
+  .use("/", require("./routes"))
   .use("/images", express.static("public/images"))
 
   .get("/*", async (_, res) => {

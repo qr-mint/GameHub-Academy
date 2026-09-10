@@ -145,6 +145,19 @@ GAME_EVM_ADDRESS=ВАШ_EVM_ADDRESS
 * `GAME_TON_ADDRESS` — ваш TON Address.
 * `GAME_EVM_ADDRESS` — ваш EVM Address.
 
+### 3. Подготовить схемы
+
+```bash
+npx prisma generate - 
+```
+
+
+### 4. Загрузить таблицы в таблицу
+
+```bash
+npx prisma db push
+```
+
 ---
 
 # 📁 Структура Backend
