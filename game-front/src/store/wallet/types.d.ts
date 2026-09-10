@@ -1,7 +1,7 @@
 import { TonConnectUI } from '@tonconnect/ui-react';
 
 type WalletState = {
-  balance?: string;
+  balance?: any;
   address?: string;
   access_token?: string;
   chain?: string,

@@ -76,7 +76,7 @@ export function GameMenu () {
 		) : (
 			<div className="flex items-center gap-1.5 bg-white/20 backdrop-blur-sm rounded-xl px-3 py-1.5">
 				<Coins className="w-4 h-4 text-yellow-300" />
-				<span className="text-white font-bold text-xs">{new BigNumber(wallet.balance || 0).div(10 ** networks[wallet.chain].decimals).toFixed(2)} {wallet.chain}</span>
+				<span className="text-white font-bold text-xs">{wallet.balance.human.toFixed(2)} {wallet.chain}</span>
 			</div>
 		);
 	};
