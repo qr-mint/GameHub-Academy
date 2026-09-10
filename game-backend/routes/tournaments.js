@@ -532,7 +532,7 @@ router
         return res.status(400).json(new Response().error(`${tournament.network} does not support!`));
       }
       let balance;
-      const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}`, {
+      const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}/${tournament.currency_token}`, {
         headers: { 'Authorization': `Bearer ${accessToken}` }
       });
       if (result.data.ok) {
@@ -541,14 +541,14 @@ router
         balance = '0';
       }
       const balances = {
-        [tournament.currency_token]: {
-          balance: balance,
-          is: ["ton", "bot"].includes(tournament.currency_token) ? 'enter' : ["ton", "bot"].includes(tournament.prize_token) ? 'prize' : 'balance in nattive coin',
+        [tournament.network]: {
+          balance,
+          is: ["ton", "bot"].includes(tournament.currency_token) ? 'enter' : 'balance in nattive coin',
         },
       }
       if (["ton", "botchain"].includes(tournament.network) && !["ton", "bot"].includes(tournament.currency_token)) {
         try {
-          const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}`, {
+          const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}/${tournament.currency_token}`, {
             headers: { 'Authorization': `Bearer ${accessToken}` }
           });
           if (result.data.ok) {
@@ -564,9 +564,26 @@ router
           is: 'enter',
         }
       }
-      if (["ton", "botchain"].includes(tournament.prize_network) && !["ton", "bot"].includes(tournament.prize_token) && tournament.prize_token != tournament.token) {
+      if (tournament.prize_network === tournament.prize_token) {
         try {
           const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.prize_network}/${tournament.address}`, {
+            headers: { 'Authorization': `Bearer ${accessToken}` }
+          });
+          if (result.data.ok) {
+            balance = result.data.data.balance.human;
+          } else {
+            balance = '0';
+          }
+        } catch (err) {
+          balance = 0;
+        }
+        balances[tournament.prize_token] = {
+          balance,
+          is: 'prize',
+        }
+      } else if (["ton", "botchain"].includes(tournament.prize_network) && !["ton", "bot"].includes(tournament.prize_token) && tournament.prize_token != tournament.token) {
+        try {
+          const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.prize_network}/${tournament.address}/${tournament.prize_token}`, {
             headers: { 'Authorization': `Bearer ${accessToken}` }
           });
           if (result.data.ok) {
