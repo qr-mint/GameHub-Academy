@@ -1,7 +1,7 @@
 import { apiClient } from '../request';
 
 export const getNFTsByNetwork = async () => {
-	const res = await apiClient.get(`/game/partners/nfts`);
+	const res = await apiClient.get('/game/partners/nfts');
 	return res.data.data;
 };
 

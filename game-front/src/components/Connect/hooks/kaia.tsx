@@ -24,7 +24,7 @@ export const useLineKaia = () => {
 		if (!walletProvider) {
 			initSDK();
 		}
-	}, [ walletProvider ]);
+	}, [walletProvider]);
 
 	const handleConnect = async () => {
 		try {
@@ -44,7 +44,7 @@ export const useLineKaia = () => {
 
 	const sendTransaction = async (body: any) => {
 		const paymentData = await create({
-		name: body.name,
+			name: body.name,
 			amount: parseFloat(body.amount),
 			token: 'kaia',
 			type: body.type,

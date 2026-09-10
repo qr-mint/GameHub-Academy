@@ -1,193 +1,45 @@
 {
   "stx": {
-    "decimals": 6,
-    "nftFee": "150000",
-    "fee": "10000"
+    "decimals": 6
   },
   "ton": {
-    "decimals": 9,
-    "payments": {
-      "provide_lp": "820000000",
-      "burn_lp": "200000000",
-      "swap": "540000000",
-      "refund": "800000000",
-      "deploy": "100000000",
-      "mint": "15000000",
-      "payment": "10000000"
-    },
-    "blockchain": {
-      "mint": 0.01,
-      "deploy": 0.01,
-      "provide_lp": 0.82,
-      "burn_lp": 0.2,
-      "swap": 0.54,
-      "refund": 0.8
-    },
-    "dev": {
-      "batchTransferAddress": "EQBPD94VTBTANQu7DqWNXt6ic0sqCNx8Ts2-LQeAKL825pqo"
-    },
-    "prod": {
-      "batchTransferAddress": "EQBPD94VTBTANQu7DqWNXt6ic0sqCNx8Ts2-LQeAKL825pqo"
-    }
+    "decimals": 9
   },
   "solana": {
-    "decimals": 9,
-    "payments": {
-      "mint": "5000000",
-      "payment": "1000000"
-    },
-    "blockchain": {
-      "mint": "0.0032923200",
-      "deploy": "0.0015"
-    }
+    "decimals": 9
   },
   "core": {
-    "decimals": 18,
-    "payments": {
-      "mint": "10000000000000000",
-      "payment": "10000000000000000",
-      "deploy": "150000000000000000"
-    },
-    "dev": {
-      "batchTransferAddress": "0x51C4640cDDd0A39823aCBea2b3D1d843E67Cd76b"
-    },
-    "prod": {
-      "code": "0x45b",
-      "batchTransferAddress": "0x739f6f938F93B9c5240ECb22666aA862B761eC1B"
-    }
+    "decimals": 18
   },
   "kaia": {
-    "decimals": 18,
-    "payments": {
-      "mint": "150000000000000000",
-      "payment": "10000000000000000",
-      "deploy": "150000000000000000"
-    },
-    "dev": {
-      "batchTransferAddress": "0x51C4640cDDd0A39823aCBea2b3D1d843E67Cd76b"
-    },
-    "prod": {
-      "code": "0x2019",
-      "batchTransferAddress": "0x739f6f938F93B9c5240ECb22666aA862B761eC1B"
-    }
+    "decimals": 18
   },
   "ancient": {
-    "decimals": 18,
-    "payments": {
-      "mint": "150000000000000000",
-      "payment": "10000000000000000",
-      "deploy": "150000000000000000"
-    },
-    "dev": {
-      "batchTransferAddress": "0x51C4640cDDd0A39823aCBea2b3D1d843E67Cd76b"
-    },
-    "prod": {
-      "code": "0x2ADCDA",
-      "batchTransferAddress": "0x739f6f938F93B9c5240ECb22666aA862B761eC1B"
-    }
+    "decimals": 18
   },
   "flow": {
-    "decimals": 18,
-    "payments": {
-      "mint": "150000000000000000",
-      "payment": "10000000000000000",
-      "deploy": "150000000000000000"
-    },
-    "dev": {
-      "batchTransferAddress": "0x51C4640cDDd0A39823aCBea2b3D1d843E67Cd76b"
-    },
-    "prod": {
-      "code": "0x2EB",
-      "batchTransferAddress": "0x739f6f938F93B9c5240ECb22666aA862B761eC1B"
-    }
+    "decimals": 18
   },
   "sei": {
-    "decimals": 18,
-    "payments": {
-      "mint": "150000000000000000",
-      "payment": "10000000000000000",
-      "deploy": "150000000000000000"
-    },
-    "dev": {
-      "code": "0x530",
-      "batchTransferAddress": "0x51C4640cDDd0A39823aCBea2b3D1d843E67Cd76b"
-    },
-    "prod": {
-      "code": "0x531",
-      "batchTransferAddress": "0x739f6f938F93B9c5240ECb22666aA862B761eC1B"
-    }
+    "decimals": 18
   },
   "duckchain": {
-    "decimals": 18,
-    "payments": {
-      "mint": "150000000000000000",
-      "payment": "10000000000000000",
-      "deploy": "150000000000000000"
-    },
-    "dev": {
-      "code": "0x31579",
-      "batchTransferAddress": "0x51C4640cDDd0A39823aCBea2b3D1d843E67Cd76b"
-    },
-    "prod": {
-      "code": "0x15A9",
-      "batchTransferAddress": "0x739f6f938F93B9c5240ECb22666aA862B761eC1B"
-    }
+    "decimals": 18
   },
   "bsc": {
-    "decimals": 18,
-    "payments": {
-      "mint": "150000000000000000",
-      "payment": "10000000000000000",
-      "deploy": "150000000000000000"
-    },
-    "dev": {
-      "code": "0x61",
-      "batchTransferAddress": "0x51C4640cDDd0A39823aCBea2b3D1d843E67Cd76b"
-    },
-    "prod": {
-      "code": "0x38",
-      "batchTransferAddress": "0x739f6f938F93B9c5240ECb22666aA862B761eC1B"
-    }
+    "decimals": 18
   },
   "botchain": {
-    "decimals": 18,
-    "payments": {
-      "mint": "150000000000000000",
-      "payment": "10000000000000000",
-      "deploy": "150000000000000000"
-    },
-    "dev": {
-      "code": "0x3C8",
-      "batchTransferAddress": "0x51C4640cDDd0A39823aCBea2b3D1d843E67Cd76b"
-    },
-    "prod": {
-      "code": "0x2A5",
-      "batchTransferAddress": "0x739f6f938F93B9c5240ECb22666aA862B761eC1B"
-    }
+    "decimals": 18
   },
   "cosmos_mantra": {
-    "chainId": "mantra-1",
-    "decimals": 6,
-    "payments": {
-      "mint": "150000",
-      "payment": "10000"
-    }
+    "decimals": 6
   },
   "cosmos_gonka": {
-    "chainId": "gonka-mainnet",
-    "decimals": 6,
-    "payments": {
-      "mint": "150000",
-      "payment": "10000"
-    }
+    "decimals": 6
   },
   "casper": {
-    "decimals": 9,
-    "payments": {
-      "deploy": "15000000",
-      "mint": "15000000",
-      "payment": "10000000"
-    }
+    "decimals": 9
   }
 }
 
