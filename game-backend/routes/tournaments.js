@@ -16,6 +16,7 @@ const poolAddress = process.env.MODE === "dev"
   ? "EQC9GX5Mp2_ztS0pMzSqZPwx2sTasYkCzCItpJrsHJTZ1F1z"
   : "EQB5ihCTH7a9GPGAIv2pW-Z0PK7C2jMkpwLGIebmzMafYYMp";
 
+
 router
   .get('/', passport.authenticate("game-jwt", { session: false }), async (req, res) => {
     try {
@@ -318,17 +319,15 @@ router
       if (!tournament) {
         return res.status(404).json(new Response().error("Tourname does not found"))
       }
-
       if (!["ton", "botchain"].includes(tournament.network)) {
         return res.status(400).json(new Response().error(`${tournament.network} does not support!`));
       }
-      // const result = await axios.get(`${API_BASE_HOST}/collections/${tournament.collection_key}/verify/${req.query.address}`, {
-      //   headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
-      // });
-		  // const is_nft = await connector.checkNft(tournament.collection_address, req.query.address);
-      // if (!is_nft) {
-      //   return res.json(new Response().ok(0));
-      // }
+      const result = await axios.get(`${API_BASE_HOST}/collections/outside/${tournament.network}/${tournament.collection_address}/verify/${req.query.address}`, {
+        headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
+      });
+      if (!result.data.ok) {
+        return res.json(new Response().ok(0));
+      }
       return res.json(new Response().ok(1));
     } catch (err) {
       await gameBot.api.sendMessage(406497473, `game/tournaments/social-verify/${err.message}`);
@@ -601,8 +600,12 @@ router
       }
       tournament.accounts = balances;
       if (tournament.collection_address) {
-        const collection = {};
-        tournament.collection = collection;
+        const result = await axios.get(`${API_BASE_HOST}/collections/outside/${tournament.network}/${tournament.collection_address}`, {
+          headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
+        });
+        if (result.data.ok) {
+          tournament.collection = result.data.data;
+        }
       }
       return res.json(new Response().data(tournament)); 
     } catch (err) {
@@ -732,8 +735,12 @@ router
       }
       tournament.prize_balance = prize_balance;
       if (tournament.collection_address) {
-        const collection = {};
-        tournament.collection = collection;
+        const result = await axios.get(`${API_BASE_HOST}/collections/outside/${tournament.network}/${tournament.collection_address}`, {
+          headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
+        });
+        if (result.data.ok) {
+          tournament.collection = result.data.data;
+        }
       }
       return res.json(new Response().data(tournament)); 
     } catch (err) {
@@ -1015,10 +1022,12 @@ router
       if (!["ton", "botchain"].includes(tournament.network)) {
         return res.status(400).json(new Response().error(`${tournament.network} does not support!`));
       }
-		  // const is_nft = await connector.checkNft(tournament.collection_address, req.query.address);
-      // if (!is_nft) {
-      //   return res.json(new Response().error("errors.notNFT"));
-      // }
+		  const result = await axios.get(`${API_BASE_HOST}/collections/outside/${tournament.network}/${tournament.collection_address}/verify/${req.query.address}`, {
+        headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
+      });
+      if (!result.data.ok) {
+        return res.json(new Response().ok(0));
+      }
     }
     if (tournament.entry_tickets) {
       if (tournament.entry_tickets > req.user.tickets) {
