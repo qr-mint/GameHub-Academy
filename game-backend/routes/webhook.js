@@ -102,6 +102,31 @@ router
             });
           }
         }
+      } else if (data.event === "nfts") {
+        const nfts = data.data.nfts;
+        if (!data.data.nfts || !Array.isArray(nfts)) return res.json(new Response().ok(1));
+        for (const nft of nfts) {
+          if (nft.status === "success") {
+            const gameWallet = await prisma.game_wallets.findFirst({
+              select: { user_wallet: { select: { user_id: true } } },
+              where: { address: nft.created_wallet.address, network: nft.network }
+            });
+            const gameRefNFT = await prisma.game_referral_nfts.findFirst({
+              where: {
+                game_user_id: gameWallet.user_wallet[0].user_id,
+                chain: nft.network,
+              }
+            });
+            await prisma.game_referral_nfts.update({
+              data: {
+                address: nft.address,
+              },
+              where: {
+                id: gameRefNFT.id,
+              }
+            });
+          }
+        }
       }
       return res.json(new Response().ok(1));
     } catch (err) {
