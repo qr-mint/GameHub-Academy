@@ -3,7 +3,6 @@ import StartGame from './main';
 import { EventBus } from './EventBus';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { getStyleActive } from '@/api/styles';
 
 export interface IRefPhaserGame {
     game: Phaser.Game | null;
@@ -21,13 +20,8 @@ export const PhaserGame = forwardRef<IRefPhaserGame, IProps>(function PhaserGame
 	useLayoutEffect(() => {
 		const loadData = async () => {
 			if (game.current === null) {
-				let styles;
-				try {
-					styles = await getStyleActive();
-				} catch (err) {
-					toast.error((err as any).message);
-				}
-				game.current = StartGame('game-container', styles);
+	
+				game.current = StartGame('game-container');
 				if (typeof ref === 'function') {
 					ref({ game: game.current, scene: null });
 				} else if (ref) {

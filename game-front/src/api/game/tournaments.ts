@@ -44,11 +44,6 @@ export const registerTournament = async (tournamentId: any, address: string) => 
 	return res.data;
 };
 
-export const getLevels = async (tournamentId: number) => {
-	const res = await apiClient.get(`/game/tournaments/${tournamentId}/levels`);
-	return res.data.data;
-};
-
 export const getParticipants = async (tournamentId: number) => {
 	const res = await apiClient.get(`/game/tournaments/${tournamentId}/participants`);
 	return res.data.data;
@@ -76,11 +71,6 @@ export const giveAwayPrizes = async (tournamentId: number, accessToken: string) 
 		}
 	});
 	return res.data.data; 
-};
-
-export const getResultLevel = async (tournamentId: number, levelId: number) => {
-	const res = await apiClient.get(`/game/tournaments/${tournamentId}/result-level/${levelId}`);
-	return res.data;
 };
 
 export const getAttempts = async (tournamentId: number) => {
