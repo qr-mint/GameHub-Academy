@@ -154,41 +154,27 @@ export const InfoForm = ({ t, watchAll, register, control, errors, setValue }: I
 						<div className="space-y-2">
 							{([
 								{ 
-									key: 'leaderboard' as const, 
-									label: t('tournaments.types.leaderboard.label'), 
+									key: 'best_score' as const, 
+									label: t('tournaments.types.best_score.label'), 
 									icon: <Sparkles className="w-5 h-5" />,
-									description: t('tournaments.types.leaderboard.info'), 
+									description: t('tournaments.types.best_score.info'), 
 								},
 								{ 
-									key: 'single_attempt' as const, 
-									label: t('tournaments.types.single_attempt.label'), 
+									key: 'best_time' as const, 
+									label: t('tournaments.types.best_time.label'), 
 									icon: <Sparkles className="w-5 h-5" />,
-									description: t('tournaments.types.single_attempt.info'), 
-								},
-								{ 
-									key: 'race' as const, 
-									label: t('tournaments.types.race.label'), 
-									icon: <Sparkles className="w-5 h-5" />,
-									description: t('tournaments.types.race.info'), 
+									description: t('tournaments.types.best_time.info'), 
 								},
 							]).map((t) => (
 								<button
 									key={t.key}
 									type="button"
 									onClick={() => {
-										if (t.key === 'race') {
-											setValue('winners', [
-												{ place: 1, percent: 100, nft: null },
-											]);
-											setValue('winners_count', 1);
-										} else if (field.value === 'race') {
-											setValue('winners', [
-												{ place: 1, percent: 50, nft: null },
-												{ place: 2, percent: 30, nft: null },
-												{ place: 3, percent: 20, nft: null },
-											]);
-											setValue('winners_count', 1);
-										}
+										setValue('winners', [
+											{ place: 1, percent: 50, nft: null },
+											{ place: 2, percent: 30, nft: null },
+											{ place: 3, percent: 20, nft: null },
+										]);
 										field.onChange(t.key);
 									}}
 									className={`w-full px-4 py-3 rounded-xl transition-all flex items-start gap-3 text-left ${

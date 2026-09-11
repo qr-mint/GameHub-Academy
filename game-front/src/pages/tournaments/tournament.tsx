@@ -15,14 +15,11 @@ import {
 import { ConnectContext } from '@/components/Connect/provider';
 import { PaymentProccesing } from '@/components/PaymentProccesing';
 import { useOrderStatusPolling } from '@/hooks/useOrderStatusPolling';
-import { getLevels } from '@/api/game/levels';
-import { getLeaderboardByTourname } from '@/api/game/leadboard';
 import { getAttempts } from '@/api/game/tournaments';
 
 import { formatTime } from '../../utils/date';
 import { copyToClipboard } from '@/utils/copyToClipboard';
 import { DexSection } from '@/components/DexSection';
-import { useWalletStore } from '@/store/wallet';
 import { useSettingsStore } from '@/store/settings/settings';
 
 enum schdeule {
@@ -184,7 +181,6 @@ export function Tournament () {
 	const [ isRegistering, setIsRegistering ] = useState(false);
 	const [ isDescriptionExpanded, setIsDescriptionExpanded ] = useState(false);
 	const [ timeLeft, setTimeLeft ] = useState('');
-	const [ levels, setLevels ] = useState<any>([]);
 	const [ participants, setParticipants ] = useState();
 	const [ attempts, setAttempts ] = useState<attempts[]>([]);
 	const isTMA = !!window.Telegram?.WebApp?.initDataUnsafe?.user;
@@ -194,8 +190,6 @@ export function Tournament () {
 			try {
 				const data = await getTournament(params.id);
 				setTournament(data);
-				const tournamentLevels = await getLevels();
-				setLevels(tournamentLevels);
 				if (!data.collection_address) {
 					setHasRequiredNft(true);
 				}
@@ -277,7 +271,7 @@ export function Tournament () {
 	const handlePayFee = async () => {
 		setIsPaying(true);
 		try {
-			let network = [ 'ancient', 'kaia', 'core', 'flow', 'sei', 'cosmos', 'botchain' ].includes(tournament?.network) ? 'evm' : tournament?.network;
+			const network = [ 'ancient', 'kaia', 'core', 'flow', 'sei', 'cosmos', 'botchain' ].includes(tournament?.network) ? 'evm' : tournament?.network;
 			const connector = connectors[network];
 			if (!connector.connected || !connector.access_token) {
 				if (isTMA) {
@@ -310,7 +304,7 @@ export function Tournament () {
 	const handleRegister = async () => {
 		setIsRegistering(true);
 		try {
-			let network = [ 'ancient', 'kaia', 'core', 'flow', 'sei', 'cosmos', 'botchain' ].includes(tournament?.network) ? 'evm' : tournament?.network;
+			const network = [ 'ancient', 'kaia', 'core', 'flow', 'sei', 'cosmos', 'botchain' ].includes(tournament?.network) ? 'evm' : tournament?.network;
 			const connector = connectors[network];
 			if (!connector.connected || !connector.access_token) {
 				if (isTMA) {
@@ -339,7 +333,7 @@ export function Tournament () {
 	const handleVerifyNft = async () => {
 		setNFTIsVerifying(true);
 		try {
-			let network = [ 'ancient', 'kaia', 'core', 'flow', 'sei', 'cosmos', 'botchain' ].includes(tournament?.network) ? 'evm' : tournament?.network;
+			const network = [ 'ancient', 'kaia', 'core', 'flow', 'sei', 'cosmos', 'botchain' ].includes(tournament?.network) ? 'evm' : tournament?.network;
 			const connector = connectors[network];
 			if (!connector.connected || !connector.access_token) {
 				if (isTMA) {
@@ -372,9 +366,9 @@ export function Tournament () {
 
 	const handlePlay = () => {
 		if (tournament?.levels.length === 1) {
-			navigate(`/game?tourname_id=${params.id}&level_id=${tournament?.levels[0].level_id}`);
+			navigate(`/game?tourname_id=${params.id}`);
 		} else {
-			navigate(`/tournaments/${tournament?.id}/levels`);
+			navigate(`/tournaments/${tournament?.id}`);
 		}
 	};
 
@@ -419,8 +413,6 @@ export function Tournament () {
 	const StatusIcon = currentStatusConfig.icon;
 
 	// Game state checks
-	const completedLevels = levels?.filter((l: any) => !!l.attempt).length ?? 0;
-	const allLevelsCompleted = completedLevels === (tournament.levels.length ?? 0);
 	const tournamentLink = `https://game.qr-mint.net/tournaments/${tournament.id}`;
 	const handleCopyInvite = async () => {
 		try {
@@ -894,14 +886,6 @@ export function Tournament () {
 					{/* Leaderboard type - Show levels progress and play button */}
           
 					<div className="flex flex-col gap-4">
-						{/* Progress */}
-						<div className="flex items-center justify-between p-3 rounded-xl bg-white/5">
-							<span className="text-sm text-white/70">{t('tournaments.view.progress')}</span>
-							<span className="text-sm font-medium text-white">
-								{t('tournaments.view.levelFrom', { value: `${completedLevels}/${tournament.levels.length}` })}
-							</span>
-						</div>
-
 						{tournament?.entry_mode === 'per_attempt' && (
 							<div className="bg-white/10 backdrop-blur-md rounded-xl border border-white/20 p-4 my-4">
 								<div className="flex items-center justify-between mb-2">
@@ -915,16 +899,6 @@ export function Tournament () {
 								</p>
 							</div>
 						)}
-
-
-						{/* Your result if completed */}
-						{allLevelsCompleted && participant?.best_time && (
-							<div className="flex items-center justify-between p-3 rounded-xl bg-green-500/20 border border-green-500/30">
-								<span className="text-sm text-green-400">{t('tournaments.view.yourTotalTime')}</span>
-								<span className="text-sm font-bold text-green-400">{formatTime(participant.best_time)}</span>
-							</div>
-						)}
-
       
 						{tournament?.entry_mode === 'per_attempt' && !participant?.allow ? (
 							<button
@@ -941,18 +915,11 @@ export function Tournament () {
 								className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 transition-all text-white font-semibold"
 							>
 								<PlayIcon className="w-5 h-5" />
-								{t('tournaments.view.selectLevel')}
+								{t('tournaments.view.play')}
 							</button>
 						)}
 					</div>
           
-
-					{allLevelsCompleted && (
-						<div className="text-center py-3 text-green-400">
-							<CheckCircleIcon className="w-6 h-6 mx-auto mb-1" />
-							<span className="text-sm">{t('tournaments.view.allLevelsCompleted')}</span>
-						</div>
-					)}
 				</div>
 			)}
 

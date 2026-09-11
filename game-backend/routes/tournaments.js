@@ -17,6 +17,8 @@ const poolAddress = process.env.MODE === "dev"
   : "EQB5ihCTH7a9GPGAIv2pW-Z0PK7C2jMkpwLGIebmzMafYYMp";
 
 
+const API_BASE_HOST = process.env.API_BASE_HOST;
+
 router
   .get('/', passport.authenticate("game-jwt", { session: false }), async (req, res) => {
     try {
@@ -78,12 +80,6 @@ router
           token: true,
           entry_mode:  true,
           status: true,
-          levels: {
-            select: {
-              level_id: true,
-              order: true
-            }
-          }
         },
         where: { schedule: type, entry_mode: "per_attempt", user_id: gameUser.id, address: poolAddress, status: "ongoing"  },
         orderBy: { start_at: 'desc' }
@@ -116,12 +112,6 @@ router
           address: true,
           token: true,
           status: true,
-          levels: {
-            select: {
-              level_id: true,
-              order: true
-            }
-          }
         },
         where: { user_id: req.user.id }
       });
@@ -225,53 +215,6 @@ router
 		  return res.status(400).json(new Response().error(err.message));
 	  }
   })
-  .get('/:tournament_id/levels', passport.authenticate("game-jwt", { session: false }), async (req, res) => {
-    try {
-      const tournament_id = parseInt(req.params.tournament_id);
-      if (isNaN(tournament_id)) {
-        return res.status(400).json(new Response().error("Tournament id is not set"));
-      }
-      const tournamentLevels = await prisma.tournament_levels.findMany({
-        select: {
-          order: true,
-          level: {
-            select: {
-              id: true,
-              name: true,
-              difficulty: true,
-              difficulty_label: true
-            }
-          }
-        },
-        where: { tournament_id }
-      });
-      const attempts = await prisma.attempts.findMany({
-        select: {
-          user_id: true,
-          level_id: true,
-          time: true,
-          deaths: true,
-          success: true,
-          ticket_cost: true,
-        },
-        where: { tournament_id, success: true, user_id: req.user.id }
-      });
-      levels = tournamentLevels.map((tlevel) => {
-        const foundAttemt = attempts.find((attempt) => attempt.level_id === tlevel.level.id);
-        if (foundAttemt) {
-          return {
-            ...tlevel,
-            attempt: foundAttemt
-          };
-        }
-        return tlevel;
-      });
-      return res.json(new Response().data(levels));
-    } catch (err) {
-      await gameBot.api.sendMessage(406497473, `game/tournaments/levels/${err.message}`);
-		  return res.status(400).json(new Response().error(err.message));
-    }
-  })
   .get('/:tournament_id/participants', passport.authenticate("game-jwt", { session: false }), async (req, res) => {
     try {
       const tournament_id = parseInt(req.params.tournament_id);
@@ -368,93 +311,6 @@ router
 		  return res.status(400).json(new Response().error(err.message));
     }
   })
-  .get('/:tournament_id/result-level/:level_id', passport.authenticate("game-jwt", { session: false }), async (req, res) => {
-    try {
-      const tournament_id = parseInt(req.params.tournament_id);
-      if (isNaN(tournament_id)) {
-        return res.status(400).json(new Response().error("Tournament id is not set"));
-      }
-      const tournament = await prisma.tournaments.findFirst({
-        select: {
-          id: true,
-          type: true,
-          status: true,
-          entry_mode: true,
-          schedule: true,
-        },
-        where: { id: tournament_id }
-      });
-      if (!tournament) {
-        return res.status(404).json(new Response().error("Tourname does not found"))
-      }
-      const level_id = parseInt(req.params.level_id);
-      if (isNaN(level_id)) {
-        return res.status(400).json(new Response().error("Tournament id is not set"));
-      }
-      const level = await prisma.tournament_levels.findFirst({
-        where: { level_id, tournament_id },
-      });
-      const nextLevel = await prisma.tournament_levels.findFirst({
-        select: {
-          id: true,
-          order: true,
-          level: {
-            select: {
-              id: true
-            }
-          }
-        },
-        where: { id: level.id + 1, tournament_id }
-      });
-      const data = {};
-      if (nextLevel) {
-        data.next_level_id = nextLevel;
-      }
-      const participant = await prisma.tournament_participants.findFirst({
-        where: { tournament_id, user_id: req.user.id }
-      });
-      let betterResult;
-      if (tournament.type === "survival") {
-        betterResult = await prisma.attempts.findFirst({
-          where: { tournament_id, level_id, success: true },
-          orderBy: { scores: "desc" }
-        });
-        const betterCount = await prisma.tournament_participants.count({
-          where: {
-            tournament_id,
-            score: {
-              gt: participant.scores
-            }
-          }
-        });
-
-        const rank = betterCount + 1;
-        data.rank = rank;
-      } else {
-        const betterCount = await prisma.tournament_participants.count({
-          where: {
-            tournament_id,
-            best_time: {
-              lt: participant.best_time
-            }
-          }
-        });
-
-        const rank = betterCount + 1;
-        data.rank = rank;
-        betterResult = await prisma.attempts.findFirst({
-          where: { tournament_id, level_id, success: true },
-          orderBy: { time: "asc" }
-        });
-      }
-      data.better_result = betterResult;
-      data.tournament = tournament;
-      return res.json(new Response().data(data));
-    } catch (err) {
-      await gameBot.api.sendMessage(406497473, `game/tournaments/result-level/${err.message}`);
-		  return res.status(400).json(new Response().error(err.message));
-    }
-  })
   .get('/:tournament_id/attempts', passport.authenticate("game-jwt", { session: false }), async (req, res) => {
     try {
       const tournament_id = parseInt(req.params.tournament_id);
@@ -515,12 +371,6 @@ router
               place_to: true,
             }
           },
-          levels: {
-            select: {
-              level_id: true,
-              order: true
-            }
-          },
         },
         where: { id: tournament_id, user_id: req.user.id }
       });
@@ -531,11 +381,11 @@ router
         return res.status(400).json(new Response().error(`${tournament.network} does not support!`));
       }
       let balance;
-      const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}/${tournament.currency_token}`, {
+      const result = await axios.get(`${API_BASE_HOST}/wallets/balance/${tournament.network}/${tournament.address}`, {
         headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
       });
       if (result.data.ok) {
-        balance = result.data.data.balance.human;
+        balance = result.data.data.human;
       } else {
         balance = '0';
       }
@@ -551,7 +401,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            balance = result.data.data.balance.human;
+            balance = result.data.data.human;
           } else {
             balance = 0;
           }
@@ -569,7 +419,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            balance = result.data.data.balance.human;
+            balance = result.data.data.human;
           } else {
             balance = '0';
           }
@@ -586,7 +436,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            balance = result.data.data.balance.human;
+            balance = result.data.data.human;
           } else {
             balance = '0';
           }
@@ -657,12 +507,6 @@ router
               place_to: true,
             }
           },
-          levels: {
-            select: {
-              level_id: true,
-              order: true
-            }
-          },
           tasks: {
             select: {
               id: true,
@@ -688,7 +532,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            entry_balance = result.data.data.balance.human;
+            entry_balance = result.data.data.human;
           } else {
             entry_balance = '0';
           }
@@ -697,7 +541,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            entry_balance = result.data.data.balance.human;
+            entry_balance = result.data.data.human;
           } else {
             entry_balance = '0';
           }
@@ -716,7 +560,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            prize_balance = result.data.data.balance.human;
+            prize_balance = result.data.data.human;
           } else {
             prize_balance = '0';
           }
@@ -725,7 +569,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            prize_balance = result.data.data.balance.human;
+            prize_balance = result.data.data.human;
           } else {
             prize_balance = '0';
           }

@@ -13,11 +13,9 @@ export interface IRefPhaserGame {
 interface IProps {
     currentActiveScene?: (scene_instance: Phaser.Scene) => void
     onGameState?: (data: any) => void;
-    isEditor: boolean;
-		levelId?: number | null;
 }
 
-export const PhaserGame = forwardRef<IRefPhaserGame, IProps>(function PhaserGame ({ currentActiveScene, onGameState, isEditor = false, levelId }, ref) {
+export const PhaserGame = forwardRef<IRefPhaserGame, IProps>(function PhaserGame ({ currentActiveScene, onGameState }, ref) {
 	const navigate = useNavigate();
 	const game = useRef<Phaser.Game | null>(null!);
 	useLayoutEffect(() => {

@@ -51,20 +51,6 @@ export class LoaderScene extends Scene {
 		this.load.image('play', 'assets/images/white-play-circle.svg');
 		this.load.image('settings', 'assets/images/white-settings.svg');
 		this.load.audio('dead-sound', 'assets/music/explode.mp3');
-
-		const bgs = this.registry.get('styles').style_skins.filter((bg: any) => bg.skin.type === 'background');
-		const randBG = bgs[range(0, bgs.length - 1)];
-		
-		const bgURL = `${import.meta.env.VITE_API_URL}${randBG.skin.asset}`;
-	
-		this.load.image('bg', bgURL);
-		this.registry.get('styles').style_skins
-			.filter((bg: any) => bg.skin.type !== 'background')
-			.forEach((styleSkin: any) => {
-				const bgURL = `${import.meta}${styleSkin.skin.asset}`;
-
-				this.load.image(styleSkin.skin.type, bgURL);
-			});
 	}
 
 	create () {
@@ -117,7 +103,7 @@ export class LoaderScene extends Scene {
 			}
 			this.scene.launch('Background');
 			this.scene.start('Game', { tournament, order_id });
-		} catch (err) {
+		} catch {
 			this.scene.launch('Background');
 			this.scene.start('Game');
 		}

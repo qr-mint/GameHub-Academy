@@ -5,7 +5,6 @@ import { MyTournament } from './myTournaments';
 import { Tournament } from './tournament';
 import { Participants } from './participants';
 import { MyTournamentUsers } from './myTournaments/users';
-import { Levels } from './levels';
 
 export const TournameRoutes = () => {
 	return (
@@ -20,7 +19,6 @@ export const TournameRoutes = () => {
 					<Route path="/my/:id" element={<MyTournament />} />
 					<Route path="/:id/participants" element={<Participants />} />
 					<Route path="/:id/users" element={<MyTournamentUsers />} />
-					<Route path="/:id/levels" element={<Levels />} />
 					<Route path="/:id" element={<Tournament />} />
 				</Routes>
 			</div>

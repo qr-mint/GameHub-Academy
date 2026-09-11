@@ -145,21 +145,6 @@ router
         const tournamentCreatedParterNFT = await prisma.game_referral_nfts.findFirst({
           where: { game_user_id: tourname.user_id, chain: tourname.network  }
         });
-        // const tournamentLevel = await prisma.tournament_levels.findFirst({
-        //   select: {
-        //     level: {
-        //       select: {
-        //         nft: {
-        //           select: {
-        //             address: true
-        //           }
-        //         }
-        //       }
-        //     }
-        //   },
-        //   where: { tournament_id },
-        //   orderBy: { id: "desc" }
-        // });
         const GAME_ADDRESS = GET_GAME_ADDRESS(tourname.network);
 
         amount = tourname.entry_amount,

@@ -32,7 +32,6 @@ interface TournamentFormData {
   entry_tickets: string
   nftRequired: boolean
   collection_address: string
-  selected_levels: any[]
   winnersCount: number
   winners: WinnerField[]
 }

@@ -5,7 +5,6 @@ import { toast } from 'react-toastify';
 
 import { Modal } from '../modal';
 import { EventBus } from '@/game/EventBus';
-import { getLevelStats } from '@/api/game/levels';
 import { formatTime } from '@/utils/date';
 
 interface ModalProps {
@@ -22,8 +21,7 @@ export const WinModal = ({ onClose, data, onBackMenu, t }: ModalProps) => {
 	useEffect(() => {
 		const loadStats = async () => {
 			try { 
-				const response = await getLevelStats(data.level_id);
-				setStats(response);
+				setStats({});
 			} catch (err) {
 				toast.error((err as any).message);
 			}
@@ -34,7 +32,7 @@ export const WinModal = ({ onClose, data, onBackMenu, t }: ModalProps) => {
 	}, []);
 
 	const handleNext = () => {
-		navigate(`/game?level_id=${data.next_level_id}`);
+		navigate('/game');
 		EventBus.emit('level:next');
 		onClose();
 	};

@@ -2,7 +2,7 @@
 import { useEffect, useState } from 'react';
 import { Modal } from '../modal';
 import { X, Crown, Clock, Gift, Star } from 'lucide-react';
-import { getResultLevel, getTournament } from '@/api/game/tournaments';
+import { getTournament } from '@/api/game/tournaments';
 import { toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
 import { EventBus } from '@/game/EventBus';
@@ -31,16 +31,16 @@ export function TournamentWinModal ({ onClose, data, onBackMenu, t }: ModalProps
 			try {
 				const tm = await getTournament(data.tournament_id);
 				setTournament(tm);
-				const result = await getResultLevel(data.tournament_id, data.level_id);
-				setResult(result.data);
+				setResult({});
 			} catch (err) {
 				toast.error((err as any).message);
 			}
 		};
 		loadTournament();
 	}, []);
+	
 	const handleNext = () => {
-		navigate(`/game?level_id=${data.next_level_id}&tournament_id=${data.tournament_id}`);
+		navigate(`/game?tournament_id=${data.tournament_id}`);
 		EventBus.emit('level:next');
 		onClose();
 	};

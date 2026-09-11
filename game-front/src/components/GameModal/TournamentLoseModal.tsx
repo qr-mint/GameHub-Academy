@@ -6,7 +6,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useOrderStatusPolling } from '@/hooks/useOrderStatusPolling';
 import { useNavigate } from 'react-router-dom';
 import { ConnectContext } from '@/components/Connect/provider';
-import { getResultLevel, getParticipant } from '@/api/game/tournaments';
+import { getParticipant } from '@/api/game/tournaments';
 import { EventBus } from '@/game/EventBus';
 import { formatTime } from '@/utils/date';
 interface ModalProps {
@@ -27,7 +27,7 @@ export const TournamentLoseModal = ({ onClose, data, onBackMenu, t }: ModalProps
 		const loadTournament = async () => {
 			try {
 				const [ resultData, participantData ] = await Promise.all([
-					getResultLevel(data.tournament_id, data.level_id),
+					{},
 					getParticipant(data.tournament_id)
 				]);
 				setResult(resultData.data);

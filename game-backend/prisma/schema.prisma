@@ -35,10 +35,8 @@ enum schedule {
 }
 
 enum tournament_types {
-  leaderboard
-  single_attempt
-  survival
-  race
+  best_time
+  best_score
 }
 
 
@@ -191,7 +189,7 @@ model tournaments {
   name          String
   schedule      schedule
   status        tournament_status @default(created)
-  type          tournament_types
+  type          tournament_types  @default(best_score)
   description   String
   entry_amount  Float?  // сумма в TON, если нужна
   entry_tickets Int?    // если нужен билет вместо денег

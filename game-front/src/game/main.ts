@@ -48,14 +48,9 @@ const config: Phaser.Types.Core.GameConfig = {
 	autoRound: true
 };
 
-const StartGame = (parent: string, styles: any) => {
+const StartGame = (parent: string) => {
 	config.parent = parent;
-	if (styles.data.backgroundColor) {
-		config.backgroundColor = styles.data.backgroundColor;
-	}
 	const game = new Game(config);
-	game.registry.set('styles', styles);
-	game.registry.set('bg', styles.data.backgroundImage);
 	return game;
 };
 

@@ -29,10 +29,6 @@
     "freeGame": {
       "title": "Free game",
       "subtitle": "1 ticket required"
-    },
-    "editor": {
-      "title": "Editor (AI)",
-      "subtitle": "Create your level"
     }
   },
   "settings": {
@@ -125,26 +121,11 @@
       }
     }
   },
-
-  "levelSelect": {
-    "title": "Level Selection",
-    "subtitle": "Choose a level to play",
-    "bestTime": "Best time",
-    "locked": "Locked"
-  },
-
   "leadboard": {
     "topByReferral": "Top by Referrals",
     "leaderTable": "Leaderboard",
-    "tab": {
-      "levels": "🎯 Levels",
-      "company": "📚 Campaigns",
-      "tournaments": "🏆 Tournaments",
-      "top": "👥 Top"
-    },
     "top3": "TOP-3",
-    "you": "You",
-    "levels": "levels"
+    "you": "You"
   },
 
   "achievements": {
@@ -175,24 +156,6 @@
     "pool": "Pool",
     "players": "Players",
     "players_count": "{{amount}} players",
-    "types": {
-      "leaderboard": {
-        "label": "Best Time",
-        "info": "Compete for the fastest level completion. You can play multiple times — only your best result counts."
-      },
-      "single_attempt": {
-        "label": "Single Attempt",
-        "info": "You only have one attempt. Your result is recorded immediately after completion or failure."
-      },
-      "survival": {
-        "label": "Survival",
-        "info": "Stay alive as long as possible and score the highest points. The player with the best score wins."
-      },
-      "race": {
-        "label": "Race",
-        "info": "The first player to complete the level wins. The tournament ends immediately once a winner is determined."
-      }
-    },
     "my": {
       "prizePool": "Prize pool",
       "smartContact": "Smart contact",
@@ -305,14 +268,6 @@
           "placeholder": "NFT Collection Address (EQD...)"
         }
       },
-      "level": {
-        "label": "Select Levels",
-        "selected": "{{count}} selected",
-        "subtitle": "Select one or more levels for this tournament",
-        "info": "Select one or more levels for this tournament",
-        "selectAll": "Select All",
-        "reset": "Reset"
-      },
       "social": {
         "import": {
           "title": "Important for Telegram",
@@ -359,7 +314,6 @@
         "info": {
           "players": "Players",
           "entry": "Entry",
-          "levels": "Levels",
           "prize": "Prizes"
         },
         "nftModal": {
@@ -497,10 +451,7 @@
       "nftNotFound": "NFT not found in your wallet",
       "play": "Play",
       "progress": "Progress",
-      "levelFrom": "{{value}} levels",
       "yourTotalTime": "Your Total Time",
-      "selectLevel": "Select Level",
-      "allLevelsCompleted": "All levels completed!",
       "bestSurvivalTime": "Best Survival Time",
       "startSurvival": "Start Survival",
       "startSingleAttempt": "Start (1 Attempt)",
@@ -512,14 +463,12 @@
   },
   "gameModal": {
     "win": {
-      "title": "Level Complete!",
       "record": "New Record!",
       "time": "Time",
       "best": "Best",
       "deaths": "Deaths",
       "reward": "Reward",
       "buttons": {
-        "nextLevel": "Next Level",
         "replay": "Replay",
         "menu": "Menu"
       }
@@ -553,7 +502,6 @@
     },
     "tournamentWin": {
       "championTitle": "Champion!",
-      "nextTitle": "Level Complete!",
       "place": "{{place}} Place",
       "winningTime": "Winning Time",
       "buttons": {
@@ -563,206 +511,6 @@
         "pending": "Reward pending",
         "claimed": "Reward claimed",
         "delayed": "Reward processing"
-      }
-    }
-  },
-  "styles": {
-    "title": "Game Style",
-    "subtitle": "Visual changes only",
-    "description": "The style only affects the visual appearance. Game mechanics remain unchanged.",
-    "preview": "Preview",
-    "saved": "Saved!",
-    "save": "Save",
-    "default": "Default",
-    "purchased": "Purchased",
-    "requiredToAchieve": "Required to achieve"
-  },
-  "editor": {
-    "creator": {
-      "back": "Go back",
-      "newLevel": "New Level",
-      "form": {
-        "level": {
-          "label": "Name",
-          "placeholder": "Fire Maze"
-        },
-        "author": {
-          "label": "Author",
-          "placeholder": "Author..."
-        },
-        "grid": {
-          "label": "Grid Size",
-          "colsLabel": "Width (cols)",
-          "rowsLabel": "Height (rows)",
-          "total": "Total",
-          "cells": "cells"
-        },
-        "create": "Create"
-    }
-  },
-  "select": {
-    "levels": "Levels",
-    "createLevel": "+ Create New"
-  },
-  "workspace": {
-    "title": "Level Editor",
-    "topPanel": {
-      "createAI": {
-        "label": "Create with AI",
-        "AI": "AI",
-        "description": "Generate a level with AI"
-      },
-      "analyzeAI": {
-        "label": "Balance",
-        "analyzing": "Analyzing...",
-        "description": "AI analyzes the level balance"
-      },
-      "testAI": {
-        "stopAI": "Stop AI",
-        "stop": "Stop",
-        "stopDescrtion": "Stop the test",
-        "test": "AI Test",
-        "descriptionTest": "Run AI test"
-      },
-      "test": {
-        "stop": "Stop",
-        "stopDescription": "Stop the test",
-        "start": "Start",
-        "startDescription": "Manually test the level"
-      },
-      "save": {
-        "label": "Save",
-        "description": "Save level to the database"
-      },
-      "mint": {
-        "description": "Mint the level as an NFT on TON",
-        "label": "Mint NFT"
-      }
-    },
-    "aiGeneratePanel": {
-      "generate": "Generate",
-      "generation": "Generating...",
-      "placeholder": "A difficult maze with 10 enemies...",
-      "promt": "Prompt"
-    },
-    "aiBanner": {
-      "description": "AI is building a path and completing the level...",
-      "stop": "Stop"
-    },
-    "rightPanel": {
-      "cancel": "Cancel",
-      "delete": "🗑 Delete",
-      "apply": "Apply",
-      "jsonLevel": "Level JSON",
-      "tools": "Tools",
-      "parametres": {
-        "title": "Parameters",
-        "visual": "Visual",
-        "json": "JSON",
-        "transform": "Transform",
-        "type": {
-          "label": "Type",
-          "options": {
-            "wall": "Block / Wall",
-            "floor": "Floor",
-            "void": "Void"
-          },
-          "description": "Defines the type of the selected map cell."
-        },
-        "x": {
-          "label": "X (horizontal coordinate, px)"
-        },
-        "y": {
-          "label": "Y (vertical coordinate, px)"
-        },
-        "area": {
-          "label": "Area",
-          "cols": {
-            "label": "Cols",
-            "description": "Width of the area in cells."
-          },
-          "rows": {
-            "label": "Rows",
-            "description": "Height of the area in cells."
-          }
-        },
-        "flags": {
-          "label": "Flags",
-          "start": "Start",
-          "save": "Save",
-          "finish": "Finish"
-        },
-        "pattern": {
-            "label": "Movement Pattern",
-            "addStep": "+ Add Step",
-            "step": "Step",
-            "delete": "🗑 Delete",
-            "deltaX": {
-              "label": "ΔX",
-              "description": "Horizontal displacement in pixels."
-            },
-            "deltaY": {
-              "label": "ΔY",
-              "description": "Vertical displacement in pixels."
-            },
-            "rotation": {
-              "label": "Rotation",
-              "description": "Rotation angle in degrees."
-            },
-            "duration": {
-              "label": "Duration",
-              "description": "Movement duration (ms)."
-            },
-            "wait": {
-              "label": "Wait",
-              "description": "Pause after completing the step (ms)."
-            }
-          },
-          "formation": {
-            "title": "Formation",
-            "speed": {
-              "label": "Speed",
-              "description": "Overall movement speed of the formation."
-            },
-            "pauseTime": {
-              "label": "Pause Time"
-            },
-            "stepAngle": {
-              "label": "Step Angle"
-            },
-            "engAngle": {
-              "label": "End Angle"
-            },
-            "type": {
-              "label": "Type",
-              "options": {
-                "circle": "Circle",
-                "pause": "Pause Circle",
-                "reverce": "Reverse Circle"
-              },
-              "description": "Behavior type for all enemies in the formation."
-            },
-            "enemies": {
-              "title": "Enemies",
-              "addEnemy": "+ Add Enemy"
-            }
-          },
-          "enemy": {
-            "title": "Enemy",
-            "formation": "← Formation",
-            "radius": {
-              "label": "Radius"
-            },
-            "angle": {
-              "label": "Angle"
-            },
-            "direction": {
-              "label": "Direction",
-              "clockwise": "Clockwise",
-              "counterClockwise": "Counterclockwise"
-            }
-          }
-        }
       }
     }
   }

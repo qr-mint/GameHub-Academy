@@ -56,7 +56,6 @@ export const PrizesForm = ({ t, control, watchAll, setValue, getValues, tokens }
 	const entryType = watchAll.entryType;
 	const selectedIcon = watchAll.icon;
 	const selectedColor = watchAll.color;
-	const selectedLevels = watchAll.selected_levels;
 	const winnersCount = watchAll.winners_count;
 	const winners = watchAll.winners;
 	const network = watchAll.prize_network;
@@ -137,34 +136,34 @@ export const PrizesForm = ({ t, control, watchAll, setValue, getValues, tokens }
 					render={({ field }) => (
 						<div className="space-y-2">
 							{([
-								{ key: 'pool' as const, networks: ["ton", "botchain"], label: t('tournaments.add.prize.rewardSource.pool.label'), icon: <Trophy className="w-5 h-5" />, desc: t('tournaments.add.prize.rewardSource.pool.info') },
-								{ key: 'dex' as const, networks: ["ton"], label: t('tournaments.add.prize.rewardSource.dex.label'), icon: <Zap className="w-5 h-5" />, desc: t('tournaments.add.prize.rewardSource.pool.info') },
+								{ key: 'pool' as const, networks: [ 'ton', 'botchain' ], label: t('tournaments.add.prize.rewardSource.pool.label'), icon: <Trophy className="w-5 h-5" />, desc: t('tournaments.add.prize.rewardSource.pool.info') },
+								{ key: 'dex' as const, networks: ['ton'], label: t('tournaments.add.prize.rewardSource.dex.label'), icon: <Zap className="w-5 h-5" />, desc: t('tournaments.add.prize.rewardSource.pool.info') },
 								// { key: 'stake' as const, label: 'Стейкинг', icon: <Sparkles className="w-5 h-5" />, desc: 'Доход от стейкинга' },
 							])
-							.filter((item) => item.networks.includes(network))
-							.map((r) => (
-								<button
-									key={r.key}
-									type="button"
-									onClick={() => {
-										field.onChange(r.key);
+								.filter((item) => item.networks.includes(network))
+								.map((r) => (
+									<button
+										key={r.key}
+										type="button"
+										onClick={() => {
+											field.onChange(r.key);
 
-									}}
-									className={`w-full px-4 py-3 rounded-xl transition-all flex items-start gap-3 text-left ${
-										field.value === r.key
-											? 'bg-amber-600 text-white shadow-lg border-2 border-amber-400'
-											: 'bg-white/10 text-white-200 hover:bg-white/20 border-2 border-transparent'
-									}`}
-								>
-									<div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${field.value === r.key ? 'bg-white/20' : 'bg-white/10'}`}>
-										{r.icon}
-									</div>
-									<div className="flex-1 min-w-0">
-										<p className="font-semibold text-sm">{r.label}</p>
-										<p className={`text-xs mt-0.5 ${field.value === r.key ? 'text-white/80' : 'text-white-300'}`}>{r.desc}</p>
-									</div>
-								</button>
-							))}
+										}}
+										className={`w-full px-4 py-3 rounded-xl transition-all flex items-start gap-3 text-left ${
+											field.value === r.key
+												? 'bg-amber-600 text-white shadow-lg border-2 border-amber-400'
+												: 'bg-white/10 text-white-200 hover:bg-white/20 border-2 border-transparent'
+										}`}
+									>
+										<div className={`w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0 ${field.value === r.key ? 'bg-white/20' : 'bg-white/10'}`}>
+											{r.icon}
+										</div>
+										<div className="flex-1 min-w-0">
+											<p className="font-semibold text-sm">{r.label}</p>
+											<p className={`text-xs mt-0.5 ${field.value === r.key ? 'text-white/80' : 'text-white-300'}`}>{r.desc}</p>
+										</div>
+									</button>
+								))}
 						</div>
 					)}
 				/>
@@ -460,10 +459,6 @@ export const PrizesForm = ({ t, control, watchAll, setValue, getValues, tokens }
 						<p className="text-white font-bold text-sm">
 							{entryType === 'token' ? `${watchAll.entry_amount} ${tokenVal}` : entryType === 'ticket' ? `${watchAll.ticket_amount}` : 'NFT'}
 						</p>
-					</div>
-					<div className="bg-white/10 rounded-lg p-2">
-						<p className="text-white/60 text-xs">{t('tournaments.add.prize.info.levels')}</p>
-						<p className="text-white font-bold text-sm">{selectedLevels.length}</p>
 					</div>
 					<div className="bg-white/10 rounded-lg p-2">
 						<p className="text-white/60 text-xs">{t('tournaments.add.prize.info.prize')}</p>

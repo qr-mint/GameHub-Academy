@@ -25,7 +25,7 @@ import { useSettingsStore } from '@/store/settings/settings';
 type EntryType = 'token' | 'ticket' | 'nft';
 type Blockchain = 'ton' | 'botchain';
 type Token = 'TON' | 'USDT' | 'NOT' | 'BOT';
-type TournamentType = 'leaderboard' | 'single_attempt' | 'survival';
+type TournamentType = 'best_time' | 'best_score';
 type Schedule = 'daily' | 'weekend' | 'special' | 'season';
 
 interface NftPrize {
@@ -81,7 +81,7 @@ export const TournamentForm = () => {
 	const { t } = useTranslation();
 	const connectors = useContext(ConnectContext);
 	const [ data, setData ] = useState<any>({});
-	const [ tokens, setTokens ] = useState([{
+	const [ tokens, setTokens ] = useState([ {
 		name: 'TON',
 		currency: 'ton',
 		network: 'ton'
@@ -89,7 +89,7 @@ export const TournamentForm = () => {
 		name: 'BOTCHain',
 		currency: 'bot',
 		network: 'botchain'
-	}]);
+	} ]);
 	const { currentStage, handlePrev, handleNext } = useWizardContext();
 	const navigate = useNavigate();
 	const {
@@ -208,7 +208,7 @@ export const TournamentForm = () => {
 
 
 			if (v.reward_source && v.prize_network && v.prize_token && getTotalPercent() <= 100 && isValid) {
-				if (v.reward_source === "dex" && (!v.dex || !v.dex_pair_id)) return false;
+				if (v.reward_source === 'dex' && (!v.dex || !v.dex_pair_id)) return false;
 				return true;
 			};
 		}
@@ -219,7 +219,7 @@ export const TournamentForm = () => {
 		try {
 			if (canProceed()) {
 				const data = getValues();
-				let network = [ 'ancient', 'kaia', 'core', 'flow', 'sei', 'cosmos', 'botchain' ].includes(data.network) ? 'evm' : data.network;
+				const network = [ 'ancient', 'kaia', 'core', 'flow', 'sei', 'cosmos', 'botchain' ].includes(data.network) ? 'evm' : data.network;
 				const connector = connectors[network];
 				if (!connector?.connected || !connector.access_token) {
 					if (isTMA) {

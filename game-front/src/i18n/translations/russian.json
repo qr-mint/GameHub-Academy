@@ -29,10 +29,6 @@
     "freeGame": {
       "title": "Бесплатная игра",
       "subtitle": "Требуется 1 билет"
-    },
-    "editor": {
-      "title": "Редактор (AI)",
-      "subtitle": "Создай свой уровень"
     }
   },
   "settings": {
@@ -125,24 +121,11 @@
       }
     }
   },
-  "levelSelect": {
-    "title": "Выбор уровня",
-    "subtitle": "Выберите уровень для прохождения",
-    "bestTime": "Лучшее время",
-    "locked": "Заблокирован"
-  },
   "leadboard": {
     "topByReferral": "Топ по рефералам",
     "leaderTable": "Таблица лидеров",
-    "tab": {
-      "level": "🎯 Уровни",
-      "company": "📚 Кампании",
-      "tournaments": "🏆 Турниры",
-      "top": "👥 Топ"
-    },
     "top3": "ТОП-3",
-    "you": "Вы",
-    "levels": "уровней"
+    "you": "Вы"
   },
   "achievements": {
     "title": "Достижения",
@@ -223,25 +206,6 @@
         "players_limit": {
           "label": "Лимит игроков"
         },
-        "types": {
-          "label": "Тип турнира",
-          "leaderboard": {
-            "label": "Лучшее время",
-            "info": "Соревнуйтесь за самое быстрое прохождение уровня. Можно играть несколько раз — в зачёт идёт лучший результат."
-          },
-          "single_attempt": {
-            "label": "Один шанс",
-            "info": "У вас есть только одна попытка. Результат фиксируется сразу после прохождения или ошибки."
-          },
-          "survival": {
-            "label": "Выживание",
-            "info": "Продержитесь как можно дольше и наберите максимум очков. Побеждает игрок с лучшим результатом."
-          },
-          "race": {
-            "label": "Гонка",
-            "info": "Побеждает тот, кто первым проходит уровень. Турнир завершается сразу после определения победителя."
-          }
-        },
         "schedule": {
           "label": "Расписания турнира",
           "daily": "Ежедневный",
@@ -300,14 +264,6 @@
           "placeholder": "Адрес NFT коллекции (EQD...)"
         }
       },
-      "level": {
-        "label": "Выберите уровни",
-        "selected": "{{count}} выбрано",
-        "subtitle": "Выберите один или несколько уровней для этого турнира",
-        "info": "Выберите один или несколько уровней для этого турнира",
-        "selectAll": "Выбрать все",
-        "reset": "Сбросить"
-      },
       "social": {
         "import": {
           "title": "Важно для телеграмм",
@@ -332,7 +288,6 @@
         "info": {
           "players": "Игроки",
           "entry": "Взнос",
-          "levels": "Уровни",
           "prize": "Призы"
         },
         "nftModal": {
@@ -467,10 +422,7 @@
       "nftNotFound": "NFT не найден в вашем кошельке",
       "play": "Играть",
       "progress": "Прогресс",
-      "levelFrom": "{{value}} уровни",
       "yourTotalTime": "Ваше общее время",
-      "selectLevel": "Выберите уровень",
-      "allLevelsCompleted": "Все уровни пройдены!",
       "bestSurvivalTime": "Лучшее время выживания",
       "startSurvival": "Начать режим выживания",
       "startSingleAttempt": "Начать (1 попытка)",
@@ -490,7 +442,6 @@
       "deaths": "Смерти",
       "reward": "Награда",
       "buttons": {
-        "nextLevel": "Следующий уровень",
         "replay": "Переиграть",
         "menu": "Меню"
       }
@@ -534,206 +485,6 @@
         "pending": "Награда ожидается",
         "claimed": "Награда получена",
         "delayed": "Награда обрабатывается"
-      }
-    }
-  },
-  "styles": {
-    "title": "Стиль игры",
-    "subtitle": "Только визуальные изменения",
-    "description": "Стиль влияет только на визуальное оформление. Механика игры остается неизменной.",
-    "preview": "Предпросмотр",
-    "saved": "Сохранено!",
-    "save": "Сохранить",
-    "default": "По умолчанию",
-    "purchased": "Куплено",
-    "requiredToAchieve": "Required to achieve"
-  },
-  "editor": {
-    "creator": {
-      "back": "Go back",
-      "newLevel": "New level",
-      "form": {
-        "level": {
-          "label": "Название",
-          "placeholder": "Огненный лабиринт"
-        },
-        "author": {
-          "label": "Автор",
-          "placeholder": "Автор..."
-        },
-        "grid": {
-          "label": "Размер сетки",
-          "colsLabel": "Ширина (cols)",
-          "rowsLabel": "Высота (rows)",
-          "total": "Итог",
-          "cells": "клеток"
-        },
-        "create": "Создать"
-      }
-    },
-    "select": {
-      "levels": "Уровни",
-      "createLevel": "+ Создать новый"
-    },
-    "workspace": {
-      "title": "Редактор",
-      "topPanel": {
-        "createAI": {
-          "label": "Создать с ИИ",
-          "AI": "AI",
-          "description": "Сгенерировать уровень через ИИ"
-        },
-        "analyzeAI": {
-          "label": "Баланс",
-          "analyzing": "Анализ...",
-          "description": "ИИ анализирует баланс уровня"
-        },
-        "testAI": {
-          "stopAI": "Стоп ИИ",
-          "stop": "Stop",
-          "stopDescrtion": "Остановить тест",
-          "test": "Тест AI",
-          "descriptionTest": "Запустить тест"
-        },
-        "test": {
-          "stop": "stop",
-          "stopDescription": "Остановить тест",
-          "start": "start",
-          "startDescription": "Ручной тест уровня"
-        },
-        "save": {
-          "label": "Сохранить",
-          "description": "Сохранить уровень в БД"
-        },
-        "mint": {
-          "description": "Минтить уровень как NFT на TON",
-          "label": "Минт NFT"
-        }
-      },
-      "aiGeneratePanel": {
-        "generate": "Генерировать",
-        "generation": "Генерация...",
-        "placeholder": "Сложный лабиринт с 10 врагами..",
-        "promt": "Промпт"
-      },
-      "aiBanner": {
-        "description": "ИИ строит путь и проходит уровень...",
-        "stop": "Остановить"
-      },
-      "rightPanel": {
-        "cancel": "Отмена",
-        "delete": "🗑 Удалить",
-        "apply": "Применить",
-        "jsonLevel": "JSON уровня",
-        "tools": "Инструменты",
-        "parametres": {
-          "title": "Parameters",
-          "visual": "Visual",
-          "json": "JSON",
-          "transform": "Transform",
-          "type": {
-            "label": "Type",
-            "options": {
-              "wall": "Block / Wall",
-              "floor": "Floor",
-              "void": "void"
-            },
-            "description": "Определяет тип выбранной клетки карты."
-          },
-          "x": {
-            "label": "X (координата по горизонтали, px)"
-          },
-          "y": {
-            "label": "Y (координата по вертикали, px)"
-          },
-          "area": {
-            "label": "Area",
-            "cols": {
-              "label": "Cols",
-              "description": " Ширина зоны в клетках."
-            },
-            "rows": {
-              "label": "Rows",
-              "description": "Высота зоны в клетках."
-            }
-          },
-          "flags": {
-            "label": "Flags",
-            "start": "Start",
-            "save": "Save",
-            "finish": "Finish"
-          },
-          "pattern": {
-            "label": "Movement Pattern",
-            "addStep": "+ Добавить шаг",
-            "step": "Step",
-            "delete": "🗑 Удалить",
-            "deltaX": {
-              "label": "ΔX",
-              "description": "Смещение по X в пикселях."
-            },
-            "deltaY": {
-              "label": "ΔY",
-              "description": "Смещение по Y в пикселях."
-            },
-            "rotation": {
-              "label": "Rotation",
-              "description": "Угол поворота в градусах."
-            },
-            "duration": {
-              "label": "Duration",
-              "description": "Время движения (мс)."
-            },
-            "wait": {
-              "label": "Wait",
-              "description": "Пауза после завершения шага (мс)."
-            }
-          },
-          "formation": {
-            "title": "Formation",
-            "speed": {
-              "label": "Speed",
-              "description": "Общая скорость движения формации."
-            },
-            "pauseTime": {
-              "label": "Pause Time"
-            },
-            "stepAngle": {
-              "label": "StepAngle"
-            },
-            "engAngle": {
-              "label": "End Angle"
-            },
-            "type": {
-              "label": "Type",
-              "options": {
-                "circle": "Circle",
-                "pause": "Pause Circle",
-                "reverce": "Reverse Circle"
-              },
-              "description": "Тип поведения всех врагов в формации."
-            },
-            "enemies": {
-              "title": "Enemies",
-              "addEnemy": "+ Add Enemy"
-            }
-          },
-          "enemy": {
-            "title": "Enemy",
-            "formation": "← Formation",
-            "radius": {
-              "label": "Radius"
-            },
-            "angle": {
-              "label": "Angle"
-            },
-            "direction": {
-              "label": "Direction",
-              "clockwise": "Clockwise",
-              "counterClockwise": "Counter Clockwise"
-            }
-          }
-        }
       }
     }
   }

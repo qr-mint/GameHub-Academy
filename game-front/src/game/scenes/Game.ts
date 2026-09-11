@@ -55,7 +55,6 @@ export class Game extends Scene {
 	}
 
 	create () {
-		const styles = this.registry.get('styles');
 		void startBackgroundMusic('assets/music/game/manifest.json');
 		this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
 			stopBackgroundMusic();
