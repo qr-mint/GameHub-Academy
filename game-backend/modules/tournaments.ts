@@ -241,7 +241,7 @@ export const giveAwayFromTournamentPool = async ({ tournament_id }, accessToken:
         headers: { 'Authorization': `Bearer ${accessToken}` }
       });
       if (result.data.ok) {
-        balance = result.data.data.human;
+        balance = result.data.data.balance.human;
       } else {
         return { error: "Balance error" };
       }

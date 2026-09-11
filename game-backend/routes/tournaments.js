@@ -401,7 +401,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            balance = result.data.data.human;
+            balance = result.data.data.balance.human;
           } else {
             balance = 0;
           }
@@ -436,7 +436,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            balance = result.data.data.human;
+            balance = result.data.data.balance.human;
           } else {
             balance = '0';
           }
@@ -532,7 +532,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            entry_balance = result.data.data.human;
+            entry_balance = result.data.data.balance.human;
           } else {
             entry_balance = '0';
           }
@@ -560,7 +560,7 @@ router
             headers: { 'Authorization': `Bearer ${req.headers['access-token']}` }
           });
           if (result.data.ok) {
-            prize_balance = result.data.data.human;
+            prize_balance = result.data.data.balance.human;
           } else {
             prize_balance = '0';
           }
