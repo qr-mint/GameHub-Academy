@@ -66,7 +66,7 @@ export const MyTournament = () => {
 		try {
 			const network = [ 'ancient', 'kaia', 'core', 'flow', 'sei', 'cosmos', 'botchain' ].includes(tournament?.network) ? 'evm' : tournament?.network;
 			const connector = connectors[network];
-			if (!connector.connected) {
+			if (!connector.connected || !connector.access_token) {
 				setConnectWallet(true);
 			}
 			await giveAwayPrizes(params.id as any, connector.access_token);

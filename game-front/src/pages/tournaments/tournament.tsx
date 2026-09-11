@@ -104,7 +104,6 @@ interface Tournament {
   player_limit: number;
   winners_count: number;
   prizes: Prize[];
-  levels: Level[];
   participants: Participant[];
   tasks: Taks[];
   entry_mode: string;
@@ -114,7 +113,6 @@ interface Tournament {
 interface attempts {
   id: number;
   user_id: number;
-  level_id: number;
   time: number;
   deaths: number;
   scores: number;

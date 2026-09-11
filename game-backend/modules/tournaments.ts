@@ -209,7 +209,7 @@ export const giveAwayFromTournamentPool = async ({ tournament_id }, accessToken:
     where: { tournament_id: tournament.id }
   });
   
-  const orderBy  = tournament.type === "survival" ? { scores: "desc" } : { best_time: "asc" };
+  const orderBy  = tournament.type === "best_score" ? { scores: "desc" } : { best_time: "asc" };
   const winners = await prisma.tournament_participants.findMany({
     select: {
       wallet: {
