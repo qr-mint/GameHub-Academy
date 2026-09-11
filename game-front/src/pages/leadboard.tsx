@@ -13,7 +13,7 @@ export function LeaderboardPage ({ t }: LeaderboardPageProps) {
 			} catch {
 				
 			}
-		}
+		};
 		load();
 	}, []);
 
