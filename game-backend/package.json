@@ -14,7 +14,8 @@
   "license": "ISC",
   "dependencies": {
     "@grammyjs/storage-prisma": "^2.2.0",
-    "@prisma/client": "^5.15.0",
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.10.0",
     "apidoc": "^0.29.0",
     "axios": "^1.8.4",
     "bcrypt": "^6.0.0",
@@ -31,7 +32,7 @@
     "multer": "^1.4.5-lts.1",
     "passport": "^0.7.0",
     "passport-jwt": "^4.0.1",
-    "prisma": "^5.14.0",
+    "prisma": "^7.10.0",
     "sharp": "^v0.34.3",
     "uuid": "^10.0.0"
   },

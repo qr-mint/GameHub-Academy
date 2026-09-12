@@ -6,9 +6,9 @@ const prisma = require("../../prisma");
 
 const getPartnerKey = (network: string) => {
   if (network === "ton") {
-    return process.env.MODE === "dev" ? 'e10de095718c462a812aede3bf4d6710' : '6f05e0c632a44bb59983b3951447a795';
+    return process.env.TON_PARTNER_COLLECTION_KEY;
   } else if (network === "botchain") {
-    return process.env.MODE === "dev" ? 'ef6e3c5aca284c24a8b9654df828a4b2' : '6f05e0c632a44bb59983b3951447a795';
+    return process.env.BOTCHAIN_PARTNER_COLLECTION_KEY;
   }
   throw new Error(`${network} does not support`);
 }

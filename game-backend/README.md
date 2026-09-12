@@ -46,6 +46,15 @@ npm install
 DATABASE_URL=postgresql://postgres@localhost:5432/game_db?schema=public&sslmode=disabled
 ```
 
+Если используйте SUPABASE, то где [DB-USER], и по такому же паттерну, нужно подставить свои данные
+
+
+```env
+DATABASE_URL="postgres://[DB-USER].[PROJECT-REF]:[PRISMA-PASSWORD]@[DB-REGION].pooler.supabase.com:6543/postgres"
+SUPABASE=true
+DIRECT_URL=postgresql://postgres.<project-ref>:<DB_PASSWORD>@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres
+```
+
 Для учебного проекта это значение **не изменяем**.
 
 Оно указывает на локальную PostgreSQL-базу данных `game_db`.
@@ -123,6 +132,17 @@ GAME_PRIVATE_KEY=PRIVATE_KEY
 Этот ключ используется Backend для выполнения необходимых операций, связанных с Blockchain.
 
 **Важно:** Private Key является секретным значением. Никогда не публикуйте его в GitHub.
+
+---
+
+### QR Mint Partern collection key
+
+```env
+TON_PARTNER_COLLECTION_KEY=
+BOTCHAIN_PARTNER_COLLECTION_KEY=
+```
+
+Здесь используется ключи для вашей партнерских коллекций, если будет, можно создать в QR Mint
 
 ---
 
