@@ -1,5 +1,5 @@
 import { useContext, useEffect, useState } from 'react';
-import { Zap, Star, Users, Coins, UserPlus, Settings, Ticket, Home, Wallet, Palette } from 'lucide-react';
+import { Zap, Star, Users, Coins, UserPlus, Settings, Ticket, Home, Wallet, Palette, Trophy } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
@@ -138,6 +138,23 @@ export function GameMenu () {
                     
 										<div className="flex-1">
 											<h3 className="text-xl font-bold text-white mb-0.5">{t('home.quickPlay.title')}</h3>
+										</div>
+									</div>
+								</div>
+								<div
+									className="group relative overflow-hidden border-2 border-white/20 bg-white/15 backdrop-blur-md hover:bg-white/25 transition-all duration-300 cursor-pointer hover:scale-[1.02] rounded-xl"
+									onClick={() => setActiveTab('tournaments')}
+								>
+									<div className="absolute inset-0 bg-gradient-to-br opacity-60 group-hover:opacity-80 transition-opacity" />
+                  
+									<div className="relative p-4 flex items-center gap-4">
+										<div className="w-12 h-12 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center group-hover:scale-110 transition-transform flex-shrink-0">
+											<Trophy className="w-6 h-6 text-white" />
+										</div>
+                    
+										<div className="flex-1">
+											<h3 className="text-xl font-bold text-white mb-0.5">{t('home.tournaments.title')}</h3>
+											<p className="text-white-100 text-sm">{t('home.tournaments.subtitle')}</p>
 										</div>
 									</div>
 								</div>

@@ -21,6 +21,7 @@ import { formatTime } from '../../utils/date';
 import { copyToClipboard } from '@/utils/copyToClipboard';
 import { DexSection } from '@/components/DexSection';
 import { useSettingsStore } from '@/store/settings/settings';
+import { getLeaderboardByTourname } from '@/api/game/leadboard';
 
 enum schdeule {
   daily = 'daily',

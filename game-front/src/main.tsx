@@ -14,16 +14,16 @@ import { ConnectProvider } from './components/Connect/provider';
 ReactDOM.createRoot(document.getElementById('root')!).render(
 	<WagmiProvider config={configEvm}>
 		<QueryClientProvider client={queryClient}>
-		<BrowserRouter>
-			<TonConnectUIProvider manifestUrl={`${import.meta.env.VITE_CONNECT_URL}/tonconnect-manifest.json`}>
-				<ConnectProvider>
-					<I18nextProvider i18n={i18next}> 
-						<App />
-						<ToastContainer />
-					</I18nextProvider>
-				</ConnectProvider>
-			</TonConnectUIProvider>
-		</BrowserRouter>
+			<BrowserRouter>
+				<TonConnectUIProvider manifestUrl={`${import.meta.env.VITE_CONNECT_URL}/tonconnect-manifest.json`}>
+					<ConnectProvider>
+						<I18nextProvider i18n={i18next}> 
+							<App />
+							<ToastContainer />
+						</I18nextProvider>
+					</ConnectProvider>
+				</TonConnectUIProvider>
+			</BrowserRouter>
 		</QueryClientProvider>
 	</WagmiProvider>
 	,
