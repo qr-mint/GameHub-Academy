@@ -93,7 +93,7 @@ function App () {
 	}, [ isTMA, access_token, auth, getMe, loading, fetchUser ]);
 
 	if (isTMA === null) {
-		return null; // или свой спиннер/сплэш-скрин
+		return <Onboarding />; // или свой спиннер/сплэш-скрин
 	}
 
 	if (loading || (!user)) {

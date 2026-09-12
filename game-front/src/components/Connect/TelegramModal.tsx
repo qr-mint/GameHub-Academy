@@ -49,7 +49,7 @@ export const TelegramModal = ({ onLoad }: TelegramModalI) => {
 	const { authWeb } = useAuthStore();
 	const handleTelegramAuth = async (data: any) => {
 		try {
-			if (import.meta.env.VITE_MODE === 'dev') {
+			if (import.meta.env.VITE_MODE === 'dev' && import.meta.env.VITE_BOT_TOKEN) {
 				const hash = await generateTelegramHash(data, import.meta.env.VITE_BOT_TOKEN);
 				data.hash = hash;
 			}

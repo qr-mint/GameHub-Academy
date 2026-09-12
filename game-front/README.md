@@ -47,7 +47,7 @@ VITE_PROJECT_ID=Ваш Project ID
 * `VITE_BLOCK_ID` — идентификатор рекламного блока Adsgram.
 * `VITE_PUBLIC_KEY` — ваш публичный ключ.
 * `VITE_BOT_USERNAME` — username вашего Telegram-бота.
-* `VITE_BOT_TOKEN` — токен Telegram-бота.
+* `VITE_BOT_TOKEN` — токен Telegram-бота. только для локальной версий
 * `VITE_NETWORK` — сеть, например `testnet`.
 * `VITE_PROJECT_ID` — Project ID, который необходимо получить в используемом сервисе.
 
