@@ -1,4 +1,4 @@
-import { EventBus } from '../EventBus';
+import { EventBus } from '../EventBus.ts';
 import { store } from '../store/index.ts';
 import { useSettingsStore } from '@/store/settings/settings';
 

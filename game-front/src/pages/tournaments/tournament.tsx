@@ -1,6 +1,6 @@
 import { AlertTriangleIcon, ArrowLeftIcon, Calendar1Icon, Check, CheckCircleIcon, ChevronDownIcon, ClockIcon, Copy, ExternalLink, ExternalLinkIcon, FileTextIcon, GamepadIcon, GiftIcon, HeartIcon, LoaderIcon, LockIcon, Play, PlayIcon, SendIcon, Share2, Shield, SkullIcon, SparkleIcon, Sparkles, StarIcon, TargetIcon, TicketIcon, TrendingUp, Trophy, TrophyIcon, UserPlusIcon, UsersIcon, XCircleIcon } from 'lucide-react';
 import React, { useState, useEffect, useContext } from 'react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../node_modules/react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 

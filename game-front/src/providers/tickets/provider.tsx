@@ -5,10 +5,10 @@ import { RefillTicketsModal } from '@/components/RefillTicketsModal';
 import { ConnectContext } from '@/components/Connect/provider';
 import { toast } from 'react-toastify';
 import { useOrderStatusPolling } from '@/hooks/useOrderStatusPolling';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../node_modules/react-i18next';
 import { useGameStore } from '@/store/game';
 import { PaymentProccesing } from '@/components/PaymentProccesing';
-import { ShowPromiseResult } from '../../../node_modules/@adsgram/common/dist/types/adsgram.d';
+import { ShowPromiseResult } from '@adsgram/common/dist/types/adsgram';
 import { useAdsgram } from "@adsgram/react";
 
 const blockId = import.meta.env.VITE_BLOCK_ID;

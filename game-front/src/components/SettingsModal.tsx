@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { X, Volume2, VolumeX, Globe, Gamepad2, ZoomIn, ArrowUp, ArrowDown } from 'lucide-react';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../node_modules/react-i18next';
 import { useSettingsStore } from '@/store/settings/settings';
 import { EventBus } from '@/game/EventBus';
 import { useLocation } from 'react-router-dom';

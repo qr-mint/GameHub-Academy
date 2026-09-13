@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Zap, Star, Users, Coins, UserPlus, Settings, Ticket, Home, Wallet, Palette, Trophy } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../node_modules/react-i18next';
 import { toast } from 'react-toastify';
 import BigNumber from 'bignumber.js';
 

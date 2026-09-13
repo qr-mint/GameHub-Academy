@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import i18next from 'i18next';
-import { I18nextProvider } from 'react-i18next';
+import { I18nextProvider } from '../node_modules/react-i18next';
 import { TonConnectUIProvider } from '@tonconnect/ui-react';
 import { BrowserRouter } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';

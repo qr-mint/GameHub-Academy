@@ -6,10 +6,10 @@ import {
 } from 'lucide-react';
 
 import { Modal } from '../modal';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../node_modules/react-i18next';
 import { ConnectContext } from './provider';
 
-import { networks } from '../../components/Connect/hooks/evm';
+import { networks } from './hooks/evm';
 
 const chains = {
 	ton: 'ton',

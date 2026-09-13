@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../node_modules/react-i18next';
 
 import { InfoForm } from '@/components/Tournaments/InfoForm';
 import { EntryForm } from '@/components/Tournaments/EntryForm';

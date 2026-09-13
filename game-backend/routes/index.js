@@ -63,36 +63,23 @@ router
   .use('/webhook', require('./webhook'))
   .get('/telegram', async (req, res) => {
     try {
-      const rawJwtToken = getTokenFromReq(req);
-      if (!rawJwtToken) {
-        return res
-          .status(401)
-          .send(new Response().error("Unauthorized"));
-      }
-      const decodedToken = jwt.decode(rawJwtToken);
-      try {
-        jwt.verify(rawJwtToken, process.env.GAME_PRIVATE_KEY);
-      } catch (err) {
-        return res
-          .status(401)
-          .send(new Response().error("Authorization failed"));
-      }
+   
 
       let authProvider = await prisma.auth_providers.findFirst({
-        where: { telegram_id: decodedToken.telegram_id }
+        where: { telegram_id: req.user.telegram_id }
       });
-      if (!authProvider) {
+      if (req.user.isNewUser) {
         const inviteCode = req.query.invite_code;
         const code = generateInviteCode();
         const gameUser = await prisma.game_users.create({
-          data: { code, username: decodedToken.username }
+          data: { code, username: req.user.username }
         });
         authProvider = await prisma.auth_providers.create({
           data: {
             game_user_id: gameUser.id,
-            ...(decodedToken.wallet_id
-              ? { wallet_id: decodedToken.wallet_id }
-              : { telegram_id: decodedToken.telegram_id })
+            ...(req.user.wallet_id
+              ? { wallet_id: req.user.wallet_id }
+              : { telegram_id: req.user.telegram_id })
             }
         });
         if (inviteCode) {
@@ -157,7 +144,6 @@ router
           .status(401)
           .send(new Response().error("Token invalid"));
       }
-
       let wallet = await prisma.game_wallets.findFirst({
         where: { address: decodedToken.address, network: decodedToken.network }
       });

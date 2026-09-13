@@ -1,7 +1,6 @@
 const passport = require("passport");
 const JwtStrategy = require("passport-jwt").Strategy;
 const ExtractJwt = require("passport-jwt").ExtractJwt;
-const jwt = require("jsonwebtoken");
 const prisma = require("../prisma");
 
 let cache = {};
@@ -9,13 +8,7 @@ passport.cache = cache;
 
 const jwtOptions = {
   jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-  secretOrKeyProvider: async (req, rawJwtToken, done) => {
-    const decodedToken = jwt.decode(rawJwtToken);
-    if (decodedToken?.public_key) {
-      return done(null, decodedToken.public_key);
-    }
-    return done(null, false);
-  },
+  secretOrKey: process.env.GAME_PRIVATE_KEY,
 };
 
 passport.use(
@@ -26,12 +19,17 @@ passport.use(
       return done(null, false);
     }
     
-  
     let authProvider;
     if (payload.telegram_id) {
       authProvider = await prisma.auth_providers.findFirst({
         where: { telegram_id: payload.telegram_id }
       });
+      if (!authProvider) {
+        return done(null, {
+          isNewUser: true,
+          ...payload
+        });
+      }
     }
    
     let gameUser;

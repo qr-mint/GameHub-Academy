@@ -7,7 +7,7 @@ import { Modal } from '../modal';
 import { toast } from 'react-toastify';
 import { generateKey } from '@/api/app';
 import { useAuthStore } from '@/store/auth';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../node_modules/react-i18next';
 
 async function generateTelegramHash (data: any, botToken: string) {
 	const { hash, ...fields } = data; // удаляем существующий hash, если есть

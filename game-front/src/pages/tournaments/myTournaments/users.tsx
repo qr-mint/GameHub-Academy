@@ -5,7 +5,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 import { getLeaderboardByTourname } from '@/api/game/leadboard';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../node_modules/react-i18next';
 
 export const MyTournamentUsers = () => {
 	const { t } = useTranslation();

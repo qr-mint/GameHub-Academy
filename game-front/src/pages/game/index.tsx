@@ -7,7 +7,7 @@ import { TournamentWinModal } from '@/components/GameModal/TournamentWinModal';
 import { SettingsModal } from '@/components/SettingsModal';
 import { EventBus } from '@/game/EventBus';
 import { useNavigate } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../node_modules/react-i18next';
 
 export function Game () {
 	const { t } = useTranslation();

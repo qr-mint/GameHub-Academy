@@ -1,5 +1,5 @@
 import { AUTO, Game, WEBGL } from 'phaser';
-import VirtualJoystickPlugin from 'phaser3-rex-plugins/plugins/virtualjoystick-plugin.js';
+import VirtualJoystickPlugin from 'phaser3-rex-plugins/plugins/virtualjoystick-plugin';
 
 import { Game as MainGame } from './scenes/Game';
 import { LoaderScene } from './scenes/Loader';

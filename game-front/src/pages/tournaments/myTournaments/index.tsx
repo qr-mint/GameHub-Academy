@@ -2,7 +2,7 @@ import { ArrowLeft, Coins, Play, Sparkles, Trophy, Users, Wallet, Zap } from 'lu
 import { useContext, useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from '../../../../node_modules/react-i18next';
 
 import * as date from '@/utils/date';
 import { copyToClipboard } from '@/utils/copyToClipboard';

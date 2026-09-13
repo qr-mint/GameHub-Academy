@@ -1,6 +1,6 @@
 import { Scene } from 'phaser';
 
-import { EventBus } from '../EventBus';
+import { EventBus } from '../EventBus.ts';
 
 import { getParticipant } from '@/api/game/tournaments.ts';
 import { useGameStore } from '@/store/game/index.ts';
