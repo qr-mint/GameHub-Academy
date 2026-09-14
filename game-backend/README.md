@@ -46,6 +46,10 @@ npm install
 DATABASE_URL=postgresql://postgres@localhost:5432/game_db?schema=public&sslmode=disabled
 ```
 
+Для учебного проекта это значение **не изменяем**.
+
+Оно указывает на локальную PostgreSQL-базу данных `game_db`.
+
 Если используйте SUPABASE, то где [DB-USER], и по такому же паттерну, нужно подставить свои данные
 
 
@@ -55,9 +59,7 @@ SUPABASE=true
 DIRECT_URL=postgresql://postgres.<project-ref>:<DB_PASSWORD>@aws-0-ap-southeast-1.pooler.supabase.com:5432/postgres
 ```
 
-Для учебного проекта это значение **не изменяем**.
-
-Оно указывает на локальную PostgreSQL-базу данных `game_db`.
+DIRECT_URL использует, для загрузки схемы в таблицу база данных в SUPABASE
 
 ---
 
