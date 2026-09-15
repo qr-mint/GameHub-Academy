@@ -19,6 +19,7 @@ export default class UIScene extends Phaser.Scene {
 		super('UIScene');
 	}
 
+
 	private destroyUI () {
 		this.uiElements.forEach(el => el.destroy());
 		this.uiElements = [];

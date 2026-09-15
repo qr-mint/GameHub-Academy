@@ -10,7 +10,7 @@ const initialState: SettingsState = {
 	cryptoCurrency: 'ton_ton',
 	network: 'ton',
 	controll: 'joystick',
-	cameraMode: 'full',
+	cameraMode: 'player',
 	zoomLevel: 1.2,
 	connecWallet: false
 };
