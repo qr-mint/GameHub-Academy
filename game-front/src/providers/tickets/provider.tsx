@@ -1,17 +1,19 @@
 import { createContext, useContext, useState } from 'react';
 import type { FunctionComponent } from 'react';
+import { toast } from 'react-toastify';
+
 import type { ITicket, TicketProviderProps } from './types';
 import { RefillTicketsModal } from '@/components/RefillTicketsModal';
 import { ConnectContext } from '@/components/Connect/provider';
-import { toast } from 'react-toastify';
 import { useOrderStatusPolling } from '@/hooks/useOrderStatusPolling';
-import { useTranslation } from '../../../node_modules/react-i18next';
+import { useTranslation } from 'react-i18next';
 import { useGameStore } from '@/store/game';
 import { PaymentProccesing } from '@/components/PaymentProccesing';
 import { ShowPromiseResult } from '@adsgram/common/dist/types/adsgram';
-import { useAdsgram } from "@adsgram/react";
+import { useAdsgram } from '@adsgram/react';
 
 const blockId = import.meta.env.VITE_BLOCK_ID;
+
 export const TicketContext = createContext<ITicket>({} as ITicket);
 export const TicketProvider: FunctionComponent<TicketProviderProps> = ({
 	children,
@@ -19,10 +21,10 @@ export const TicketProvider: FunctionComponent<TicketProviderProps> = ({
 	const adsgram = useAdsgram({ blockId });
 	
 	const { data, loadGameData } = useGameStore();
-	const [showRefillModal, setShowRefillModal] = useState(false);
+	const [ showRefillModal, setShowRefillModal ] = useState(false);
 	const { t } = useTranslation();
 	const connectors = useContext(ConnectContext);
-	const [order, setOrder] = useState<any>({});
+	const [ order, setOrder ] = useState<any>({});
 
 	const handleOrderConfirmed = async () => {
 		try {
@@ -64,14 +66,14 @@ export const TicketProvider: FunctionComponent<TicketProviderProps> = ({
 		} catch (err) {
 			toast.error((err as any).message);
 		}
-	}
+	};
 	const handleWatchAd = () => {
 		adsgram.show()
 			.then((result: ShowPromiseResult) => {
 				console.log(result);
 			}).catch((result: ShowPromiseResult) => {
 				console.log(result);
-			})
+			});
 	};
 	
 	const openRefillTickets = () => {
@@ -83,11 +85,11 @@ export const TicketProvider: FunctionComponent<TicketProviderProps> = ({
 			{children}
 			<RefillTicketsModal
 				t={t}
-        isOpen={showRefillModal} 
-        onClose={() => setShowRefillModal(false)}
-        onWatchAd={handleWatchAd}
-        onBuyTickets={handleBuyTickets}
-        currentTickets={data?.tickets}
+				isOpen={showRefillModal} 
+				onClose={() => setShowRefillModal(false)}
+				onWatchAd={handleWatchAd}
+				onBuyTickets={handleBuyTickets}
+				currentTickets={data?.tickets}
 			/>
 			{order.game_order_id && <PaymentProccesing t={t} />}
 		</TicketContext.Provider>
