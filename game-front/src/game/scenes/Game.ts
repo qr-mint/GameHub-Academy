@@ -20,7 +20,6 @@ export class Game extends Scene {
 
 	async init (data: any) {
 		store.reset();
-		const styles = this.registry.get('styles');
 		if (data.tournament) {
 			this.tournamentID = data.tournament.id;
         
@@ -56,6 +55,7 @@ export class Game extends Scene {
 
 	create () {
 		void startBackgroundMusic('assets/music/game/manifest.json');
+
 		this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
 			stopBackgroundMusic();
 		});
@@ -64,20 +64,7 @@ export class Game extends Scene {
 		// Размер карты в пикселях
 		this.mapWidth = 1 * 32;
 		this.mapHeight = 1 * 32;
-
-		const screenWidth = this.scale.width;
-		const screenHeight = this.scale.height;
-		if (cameraMode === 'full') {
-			const zoomX = screenWidth / this.mapWidth;
-			const zoomY = screenHeight / this.mapHeight;
-
-			const zoom = Math.min(zoomX, zoomY);
-      
-			this.cameras.main.setZoom(zoom);
-			this.cameras.main.centerOn(this.mapWidth / 2, this.mapHeight / 2);
-		}
-
-      
+    
 		if (cameraMode === 'player') {
 			EventBus.on('zoom:change', () => {
 				this.cameras?.main?.setZoom(store.currentZoom);
@@ -98,13 +85,7 @@ export class Game extends Scene {
 		});
 
 		EventBus.on('settings:camera-mode-change', (mode: string) => {
-			if (mode === 'player' && this.player) {
-				this.cameras.main.startFollow(this.player, true, 0.1, 0.1);
-			} else {
-				this.cameras.main.stopFollow();
-				this.cameras.main.setZoom(1);
-				this.cameras.main.centerOn(this.mapWidth / 2, this.mapHeight / 2);
-			}
+			this.cameras.main.startFollow(this.player, true, 0.1, 0.1);
 		});
       
 		this.scale.on('resize', this.onResize, this);

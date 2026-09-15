@@ -86,35 +86,6 @@ export function SettingsModal ({ isOpen, onClose }: { isOpen: boolean; onClose: 
 						<div className="p-4 bg-amber-50 rounded-xl border border-amber-200">
 							<div className="flex items-center gap-3 mb-3">
 								<Gamepad2 className="w-5 h-5 text-amber-600" />
-								<p className="font-semibold text-amber-900">{t('settings.cameraMode.title')}</p>
-							</div>
-							<div className="grid grid-cols-2 gap-2">
-								<button
-									onClick={() => handleCameraModeChange(cameraMode.full)}
-									className={`px-4 py-3 rounded-lg font-medium transition-all flex flex-col items-center gap-1 ${
-										settings.cameraMode === cameraMode.full
-											? 'bg-amber-600 text-white shadow-lg'
-											: 'bg-white text-amber-700 hover:bg-amber-100 border border-amber-200'
-									}`}
-								>
-									<span className="text-sm">{t('settings.cameraMode.full')}</span>
-								</button>
-								<button
-									onClick={() => handleCameraModeChange(cameraMode.player)}
-									className={`px-4 py-3 rounded-lg font-medium transition-all flex flex-col items-center gap-1 ${
-										settings.cameraMode === cameraMode.player
-											? 'bg-amber-600 text-white shadow-lg'
-											: 'bg-white text-amber-700 hover:bg-amber-100 border border-amber-200'
-									}`}
-								>
-									<span className="text-sm">{t('settings.cameraMode.player')}</span>
-								</button>
-							</div>
-						</div>
-
-						<div className="p-4 bg-amber-50 rounded-xl border border-amber-200">
-							<div className="flex items-center gap-3 mb-3">
-								<Gamepad2 className="w-5 h-5 text-amber-600" />
 								<p className="font-semibold text-amber-900">{t('settings.controll.title')}</p>
 							</div>
 							<div className="grid grid-cols-2 gap-2">
