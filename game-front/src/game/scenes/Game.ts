@@ -13,7 +13,7 @@ export class Game extends Scene {
 	private mapWidth: number;
 	private mapHeight: number;
 	bg: Phaser.GameObjects.TileSprite;
-
+	player: any;
 	constructor () {
 		super('Game');
 	}
@@ -43,7 +43,7 @@ export class Game extends Scene {
 		} else {
 			//
 		}
-
+		
 		const gameState = useGameStore.getState();
 		// this.tickets = gameState.data.tickets;
 		// if (this.tickets === 0 && !this.tournamentID) {
@@ -120,31 +120,11 @@ export class Game extends Scene {
 
 	onResize = () => {
 	
-		const cameraMode = useSettingsStore.getState().cameraMode;
-
-		this.mapWidth = this.map.grid.length * TILE_SIZE;
-		this.mapHeight = this.map.grid[0].length * TILE_SIZE;
-	
-		if (cameraMode === 'full') {
-			console.log('onResize called', window.innerWidth, window.innerHeight);
-			// Размер карты в пикселях
-			const screenWidth = window.innerWidth;
-			const screenHeight = window.innerHeight;
-
-			const zoomX = screenWidth / this.mapWidth;
-			const zoomY = screenHeight / this.mapHeight;
-
-			const zoom = Math.min(zoomX, zoomY);
-
-			this.cameras.main.setZoom(zoom);
-			this.cameras.main.centerOn(this.mapWidth / 2, this.mapHeight / 2);
-			
-      
-		} else if (cameraMode === 'player' && this.player) {
-			// Камера должна снова начать следить за игроком после resize
-			this.cameras.main.setZoom(store.currentZoom);
-			this.cameras.main.startFollow(this.player, true, 0.1, 0.1);
-		}
+		const cameraMode = useSettingsStore.getState().cameraMode;	
+		// Камера должна снова начать следить за игроком после resize
+		this.cameras.main.setZoom(store.currentZoom);
+		this.cameras.main.startFollow(this.player, true, 0.1, 0.1);
+		
 
 		// Уведомляем UIScene чтобы она перестроила кнопки
 		EventBus.emit('scene:resize');
