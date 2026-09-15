@@ -1,5 +1,4 @@
 import { Scene } from 'phaser';
-import { getLevel } from '@/api/game/levels.ts';
 import { getTournament, getTournamentBy, getParticipant } from '@/api/game/tournaments.ts';
 import { store } from '../store';
 
@@ -50,7 +49,11 @@ export class LoaderScene extends Scene {
 		this.load.image('pause', 'assets/images/white-pause-circle.svg');
 		this.load.image('play', 'assets/images/white-play-circle.svg');
 		this.load.image('settings', 'assets/images/white-settings.svg');
-		this.load.audio('dead-sound', 'assets/music/explode.mp3');
+		//this.load.audio('dead-sound', 'assets/music/explode.mp3');
+		this.load.spritesheet('player', 'assets/images/player.png', {
+			frameWidth: 243, // <-- подставь реальную ширину одного кадра
+			frameHeight: 360, // <-- подставь реальную высоту одного кадра
+		});
 	}
 
 	create () {
@@ -73,7 +76,7 @@ export class LoaderScene extends Scene {
 		this.load.start();
 	}
 
-	update (time, delta) {
+	update (time: number, delta: number) {
 		// Обязательно передаем изменяющееся время, чтобы помехи "двигались"
 		this.tvShader.setUniform('time.value', time * 0.001);
 	}

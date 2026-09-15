@@ -7,11 +7,13 @@ import { useGameStore } from '@/store/game/index.ts';
 import { store } from '../store/index.ts';
 import { useSettingsStore } from '@/store/settings/settings.tsx';
 import { startBackgroundMusic, stopBackgroundMusic } from '../../audio/backgroundMusic.ts';
+import Player from '../subjects/player.ts';
 
 export class Game extends Scene {
 	private tournamentID: number;
 	bg: Phaser.GameObjects.TileSprite;
-	player: any;
+	player: Player;
+	cursors: any;
 	constructor () {
 		super('Game');
 	}
@@ -53,14 +55,14 @@ export class Game extends Scene {
 
 	create () {
 		void startBackgroundMusic('assets/music/game/manifest.json');
+		this.player = new Player(this, 100, 100);
+		this.cursors = this.input.keyboard.createCursorKeys();
 
 		this.events.once(Phaser.Scenes.Events.SHUTDOWN, () => {
 			stopBackgroundMusic();
 		});
 
-		const cameraMode = useSettingsStore.getState().cameraMode;
-
-    
+		const cameraMode = useSettingsStore.getState().cameraMode;    
 		if (cameraMode === 'player') {
 			EventBus.on('zoom:change', () => {
 				this.cameras?.main?.setZoom(store.currentZoom);
