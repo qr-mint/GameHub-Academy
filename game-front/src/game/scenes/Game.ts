@@ -10,8 +10,6 @@ import { startBackgroundMusic, stopBackgroundMusic } from '../../audio/backgroun
 
 export class Game extends Scene {
 	private tournamentID: number;
-	private mapWidth: number;
-	private mapHeight: number;
 	bg: Phaser.GameObjects.TileSprite;
 	player: any;
 	constructor () {
@@ -61,9 +59,7 @@ export class Game extends Scene {
 		});
 
 		const cameraMode = useSettingsStore.getState().cameraMode;
-		// Размер карты в пикселях
-		this.mapWidth = 1 * 32;
-		this.mapHeight = 1 * 32;
+
     
 		if (cameraMode === 'player') {
 			EventBus.on('zoom:change', () => {
